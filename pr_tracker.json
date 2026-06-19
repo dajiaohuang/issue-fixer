@@ -142,5 +142,23 @@
       "pending": 1
     },
     "last_checked": "2026-06-19T18:15:44.532651+00:00"
+  },
+  {
+    "repo": "SauersML/gam",
+    "pr_number": 1354,
+    "pr_url": "https://github.com/SauersML/gam/pull/1354",
+    "issue_url": "https://github.com/SauersML/gam/issues/1353",
+    "state": "OPEN",
+    "created_at": "2026-06-19T18:28:08Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:28:12.266705+00:00"
   }
 ]
