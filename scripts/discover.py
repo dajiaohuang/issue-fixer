@@ -13,10 +13,53 @@ Each candidate includes repo metadata and issue details for Claude to classify.
 import argparse
 import json
 import os
+import random
 import subprocess
 import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
+
+
+# ── Domain keyword pool for Strategy B ──────────────────────────────
+DOMAIN_KEYWORDS = [
+    # Languages & frameworks
+    "golang", "rustlang", "typeScript", "python3", "c++ library", "zig",
+    # DevOps & infra
+    "kubernetes", "docker", "terraform", "ansible", "prometheus", "grafana",
+    "nginx", "envoy", "istio", "helm", "gitops", "ci cd",
+    # Data & storage
+    "postgresql", "sqlite", "redis", "mongodb", "elasticsearch", "kafka",
+    "rabbitmq", "etcd", "clickhouse", "duckdb", "vector database",
+    # App types
+    "inventory management", "task runner", "static site generator", "markdown parser",
+    "cli tool", "dashboard", "api gateway", "job scheduler", "image optimizer",
+    "openapi", "websocket", "cron", "diff", "cache", "queue",
+    "form builder", "csv parser", "pdf generator", "email client", "auth library",
+    "i18n", "theme", "webhook", "proxy", "log", "monitor", "backup",
+    "migrate", "scraper", "code formatter", "linter", "test runner",
+    "package manager", "chat bot", "notification", "scheduler", "template engine",
+    "rate limiter", "feature flag", "config parser", "data validator",
+    # AI/ML
+    "llm", "vector search", "rag", "embedding", "tokenizer", "prompt",
+    "image recognition", "speech recognition", "text to speech",
+    # Web & mobile
+    "react component", "vue component", "svelte", "wasm", "graphql",
+    "rest api", "grpc", "swagger", "jwt", "oauth2", "cors",
+    # Tools & utils
+    "dotfiles", "dev tools", "productivity", "note taking",
+    "terminal emulator", "file manager", "text editor plugin",
+    "home automation", "iot", "raspberry pi", "arduino",
+    # Misc active niches
+    "game engine", "chess engine", "pomodoro", "markdown editor",
+    "rss reader", "bookmark manager", "password manager",
+    "music player", "video player", "image viewer",
+    "weather app", "todo list", "calendar", "spreadsheet",
+    "kanban board", "wiki engine", "blog engine", "static site",
+    "cms", "headless cms", "ssg template", "css framework",
+    "design system", "icon set", "font library", "color palette",
+    "neovim plugin", "vscode extension", "tmux config",
+    "zsh plugin", "fish shell", "git alias", "github action",
+]
 
 
 def run(cmd, **kwargs):
@@ -54,7 +97,7 @@ PRIORITY_LABELS = {
 
 
 def get_trending_repos(min_stars=100, max_days=7, count=10):
-    """Phase 1: Search GitHub for trending repos with recent pushes."""
+    """Strategy A: Search GitHub for trending repos with recent pushes."""
     since = (datetime.now(timezone.utc) - timedelta(days=max_days)).strftime("%Y-%m-%d")
     query = f"pushed:>{since} stars:>{min_stars}"
     jq_filter = "[.items[] | {full_name, stars: .stargazers_count, pushed_at, language, has_issues, license: .license.key}]"
@@ -67,6 +110,30 @@ def get_trending_repos(min_stars=100, max_days=7, count=10):
     if not result:
         return []
     return [r for r in result if r.get("has_issues") and r.get("license")]
+
+
+def get_keyword_repos(min_stars=10, max_stars=5000, max_days=14, count=10):
+    """Strategy B: Search repos by random domain keyword, low star floor, focused on recency."""
+    keyword = random.choice(DOMAIN_KEYWORDS)
+    since = (datetime.now(timezone.utc) - timedelta(days=max_days)).strftime("%Y-%m-%d")
+    query = f"{keyword} stars:{min_stars}..{max_stars} pushed:>{since}"
+    jq_filter = "[.items[] | {full_name, stars: .stargazers_count, pushed_at, language, has_issues, license: .license.key}]"
+    result = run_json(
+        ["gh", "api", "-X", "GET", "search/repositories",
+         "-f", f"q={query}", "-f", "sort=updated", "-f", "order=desc", "-f", f"per_page={count}",
+         "--jq", jq_filter],
+        timeout=15,
+    )
+    if not result:
+        return []
+    # Filter: only repos within the requested star range and not license-banned
+    filtered = [
+        r for r in result
+        if r.get("has_issues") and r.get("license")
+        and min_stars <= (r.get("stars", 0) or 0) <= max_stars
+    ]
+    print(f"  (keyword: '{keyword}' → {len(result)} total, {len(filtered)} in range {min_stars}-{max_stars})", file=sys.stderr)
+    return filtered
 
 
 def get_recent_issues(repo_full_name, limit=8):
@@ -136,12 +203,22 @@ def clone_repo_shallow(repo_full_name):
     return None
 
 
-def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8, max_candidates=5):
-    """Main discovery pipeline. Returns list of candidate dicts."""
+def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8,
+                        max_candidates=5, use_keyword=False, kw_min_stars=30, kw_max_stars=2000):
+    """Main discovery pipeline. Returns list of candidate dicts.
+    If *use_keyword* is True, also runs Strategy B (domain keyword sampling)."""
 
     repos = get_trending_repos(min_stars, max_days, repo_count)
+    if use_keyword:
+        kw_repos = get_keyword_repos(kw_min_stars, kw_max_stars, max_days, repo_count)
+        # Merge and deduplicate
+        seen = {r["full_name"] for r in repos}
+        for r in kw_repos:
+            if r["full_name"] not in seen:
+                repos.append(r)
+                seen.add(r["full_name"])
     if not repos:
-        print("ERROR: No trending repos found.", file=sys.stderr)
+        print("ERROR: No repos found.", file=sys.stderr)
         return []
 
     candidates = []
@@ -251,6 +328,9 @@ def main():
     parser.add_argument("--repo-count", type=int, default=10)
     parser.add_argument("--issue-limit", type=int, default=8)
     parser.add_argument("--max-candidates", type=int, default=5)
+    parser.add_argument("--keyword", action="store_true", help="Also use domain keyword sampling (Strategy B)")
+    parser.add_argument("--kw-min-stars", type=int, default=10)
+    parser.add_argument("--kw-max-stars", type=int, default=5000)
     parser.add_argument("--json-only", action="store_true", help="Suppress stderr, output only JSON")
     args = parser.parse_args()
 
@@ -263,6 +343,9 @@ def main():
         repo_count=args.repo_count,
         issue_limit=args.issue_limit,
         max_candidates=args.max_candidates,
+        use_keyword=args.keyword,
+        kw_min_stars=args.kw_min_stars,
+        kw_max_stars=args.kw_max_stars,
     )
 
     if not candidates:

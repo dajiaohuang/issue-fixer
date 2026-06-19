@@ -67,16 +67,25 @@ The user provides a repo (`owner/repo`) and optionally an issue number.
 
 #### Step 1: Run the Discovery Script
 
-Use `scripts/discover.py` to automate all mechanical checks (repo search, commit grep, PR search, linked PR check):
+Use `scripts/discover.py` to automate all mechanical checks. Uses two strategies:
+
+**Strategy A — Trending repos** (stars > 100, pushed within 7 days)
+**Strategy B — Domain keyword sampling** (random keyword, stars 30–2000, pushed within 14 days)
 
 ```bash
-python scripts/discover.py --min-stars 100 --max-days 7 --repo-count 10 --max-candidates 5
+# Trending only (fast)
+python scripts/discover.py --min-stars 100 --max-days 7 --repo-count 10
+
+# Trending + keyword (broader coverage)
+python scripts/discover.py --min-stars 100 --max-days 7 --keyword
 ```
 
 Parameters:
-- `--min-stars` — minimum repo stars (default 100, lower to 50 or 30 if no results)
+- `--min-stars` — minimum trending stars (default 100, lower to 50 if no results)
 - `--max-days` — last push within N days (default 7, expand to 14 or 30)
-- `--repo-count` — repos to scan (default 10)
+- `--repo-count` — repos to scan per strategy (default 10)
+- `--keyword` — enable Strategy B (domain keyword sampling)
+- `--kw-min-stars` / `--kw-max-stars` — star range for keyword search (default 30–2000)
 - `--max-candidates` — max issues to return (default 5)
 
 The script outputs a JSON array of candidates that passed all checks. It handles Steps 1-3 of the pipeline automatically:
