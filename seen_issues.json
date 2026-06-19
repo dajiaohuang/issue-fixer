@@ -68,6 +68,10 @@
     "number": 1496
   },
   {
+    "repo": "Azure/azure-sdk-for-python",
+    "number": 47576
+  },
+  {
     "repo": "CVHub520/X-AnyLabeling",
     "number": 1397
   },
@@ -396,6 +400,10 @@
     "number": 114
   },
   {
+    "repo": "LineageOS/issues",
+    "number": 115
+  },
+  {
     "repo": "MervinPraison/PraisonAI",
     "number": 1961
   },
@@ -618,6 +626,10 @@
   {
     "repo": "Seretos/workboard",
     "number": 74
+  },
+  {
+    "repo": "Servosity/msp-skills",
+    "number": 146
   },
   {
     "repo": "SiVeci/JavDB_magnet_Spider",
@@ -852,8 +864,16 @@
     "number": 908
   },
   {
+    "repo": "anthropics/claude-code",
+    "number": 69632
+  },
+  {
     "repo": "anupchavan/obsidian-custom-views",
     "number": 8
+  },
+  {
+    "repo": "avibe-bot/avibe",
+    "number": 620
   },
   {
     "repo": "aws/karpenter-provider-aws",
@@ -898,6 +918,10 @@
   {
     "repo": "cervantesh/cervo-mutants",
     "number": 269
+  },
+  {
+    "repo": "chopratejas/headroom",
+    "number": 1172
   },
   {
     "repo": "cline/cline",
@@ -1016,6 +1040,10 @@
     "number": 1595
   },
   {
+    "repo": "darktable-org/darktable",
+    "number": 21366
+  },
+  {
     "repo": "davidgidali/gencanvas-dist",
     "number": 123
   },
@@ -1024,8 +1052,16 @@
     "number": 124
   },
   {
+    "repo": "docling-project/docling",
+    "number": 3667
+  },
+  {
     "repo": "doxygen/doxygen",
     "number": 12213
+  },
+  {
+    "repo": "efibs/GeoClubBot",
+    "number": 159
   },
   {
     "repo": "elastic/kibana",
@@ -1110,6 +1146,10 @@
   {
     "repo": "hotwax/order-routing",
     "number": 379
+  },
+  {
+    "repo": "humansoftware/synaflow",
+    "number": 45
   },
   {
     "repo": "im-anishraj/arnio",
@@ -1216,6 +1256,10 @@
     "number": 8
   },
   {
+    "repo": "matplotlib/matplotlib",
+    "number": 31927
+  },
+  {
     "repo": "mblua/AgentsCommander",
     "number": 551
   },
@@ -1246,6 +1290,10 @@
   {
     "repo": "mblua/AgentsCommander",
     "number": 568
+  },
+  {
+    "repo": "mediajunkie/piper-morgan-product",
+    "number": 1285
   },
   {
     "repo": "medusajs/medusa",
@@ -1346,6 +1394,10 @@
   {
     "repo": "nocodb/nocodb",
     "number": 14107
+  },
+  {
+    "repo": "obsproject/obs-studio",
+    "number": 13571
   },
   {
     "repo": "open-mercato/open-mercato",
@@ -1662,5 +1714,9 @@
   {
     "repo": "x-govuk/govuk-form-builder",
     "number": 607
+  },
+  {
+    "repo": "zyddnys/manga-image-translator",
+    "number": 1150
   }
 ]

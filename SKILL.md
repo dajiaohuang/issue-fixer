@@ -13,38 +13,59 @@ description: >
 
 This skill guides Claude through fixing GitHub issues in arbitrary repositories. The workspace directory (`D:\repo\issue-fixer`) is a staging area — target repos are forked and cloned into subdirectories here, worked on, and cleaned up after the PR is merged or closed.
 
-## Hard Rules
+## Operating Modes
 
-### 1. Plan Mode is Mandatory for ALL Fixes
+This skill has two modes. The user chooses by how they phrase the request.
 
-Whether the repo is specified by the user or auto-discovered, you MUST enter plan mode and get user approval before writing any code. The only exception is the Pre-Fix Checklist itself (reading commits/PRs/issue threads does not require a plan).
+### Confirm Mode (default)
 
-### 2. Follow the Target Repo's Rules — No Exceptions
+When the user says "帮我找 issue" or "修这个 issue", work in confirm mode:
+- Enter plan mode before writing code
+- Present candidates, let user pick
+- Wait for user approval before opening PRs
 
-**Before writing a single line of code**, read the target repo's own guidelines. If the repo has a `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, or any other governance file, you MUST comply with every requirement in it. This is not optional — you are a guest in their project.
+### Autonomous Mode
 
-Specifically:
-- **PR template** — if `.github/pull_request_template.md` exists, use its exact structure
-- **Commit format** — follow the repo's convention, not yours; if `CONTRIBUTING.md` specifies a format, use it
-- **Testing requirements** — if they require tests, add them; if they require `doctest` for every function, do it
-- **Code style** — match their linter config, not your preferences
-- **Branch naming** — if they specify a naming convention, follow it; otherwise use `fix/<issue-number>-<short-description>`
-- **Sign-off / DCO** — if the repo requires `Signed-off-by`, include it
+When the user says **"自动"**, **"不停"**, **"一直"**, **"autonomous"**, **"auto"**, or **"持续"**, switch to autonomous mode:
 
-If you skip reading their guidelines and submit a non-compliant PR, you are wasting the maintainers' time. Read first, code second.
+**No plan mode.** Discover → filter → fix → test → commit → PR → track → repeat. Never stop unless:
+- 3 consecutive discovery rounds find zero actionable candidates (all unactionable SKIPs count as empty)
+- The user interrupts
 
-### 3. No AI-Generated Markers in Commits or PRs — Zero Tolerance
+In autonomous mode, do NOT ask for confirmation. Work each candidate directly:
 
-**Never** include any of the following in commit messages, PR titles, or PR bodies:
+```
+discover.py → candidate JSON
+  → for each actionable candidate:
+      → gh repo fork + git clone
+      → read code, apply fix
+      → run tests (if available)
+      → git commit + push
+      → gh pr create (fill PR template if exists)
+      → pr_tracker.py add
+      → clean up clone dir
+  → repeat
+```
 
-- `Co-Authored-By: Claude`
-- `Generated with Claude Code`
-- `🤖 Generated with...`
-- Any mention of Claude, Anthropic, AI, or LLM assistance
+**If 3 consecutive discovery rounds return zero actionable candidates**, improve the search (broader params, new query types, scan known repos) and keep going.
 
-This applies to **every PR, every repo, no exceptions**. Even if the target repo does not explicitly ban AI content, these markers will cause maintainers to dismiss your contribution without review. Write commit messages and PR bodies naturally — the code is judged on its own merit, not its origin.
+---
 
-Use natural language: `docs: add docstrings to helper functions` not `claude added docstrings`.
+## Hard Rules (apply to BOTH modes)
+
+### 1. Follow the Target Repo's Rules
+
+**Before writing a single line of code**, read the target repo's own guidelines. If the repo has a `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, or any other governance file, comply with every requirement in it.
+
+- **PR template** — if `.github/pull_request_template.md` exists, fill it exactly
+- **Commit format** — follow the repo's convention; if `CONTRIBUTING.md` specifies one, use it
+- **Testing requirements** — if they require tests, add them
+- **Code style** — match their linter config
+- **Branch naming** — if they specify one, follow it; otherwise `fix/<issue-number>-<short-description>`
+
+### 2. No AI-Generated Markers in Commits or PRs
+
+**Never** include in commits or PRs: `Co-Authored-By: Claude`, `Generated with Claude Code`, `🤖`, mentions of Claude/Anthropic/AI/LLM. Write naturally.
 
 ---
 
@@ -125,10 +146,12 @@ For each row include a one-line fix summary. Only show `trivial` and `small` can
 
 #### Fallback
 
-If the script returns zero candidates, expand the search:
-- Lower `--min-stars` (100 → 50 → 30)
-- Broaden `--max-days` (7 → 14 → 30)
-- If still nothing, report and ask for direction.
+If zero candidates, expand the search:
+- Lower `--min-stars` (100 → 50 → 30 → 5 → 1)
+- Broaden `--max-days` (7 → 14 → 30 → 120)
+- Add new query types to `DIRECT_SEARCH_QUERIES`
+- Run `scan_known_repos.py`
+- In autonomous mode: keep expanding and retrying, never stop
 
 ---
 
@@ -148,11 +171,56 @@ git clone https://github.com/<your-username>/<repo>.git <owner>-<repo>
 
 **Cleanup:** Delete the local clone after PR merge/closure. The fork can be kept or deleted.
 
+## Autonomous Workflow
+
+When in autonomous mode, run the full cycle without stopping:
+
+### Step 1: Discover
+```bash
+python scripts/discover.py --direct --keyword --kw-min-stars 5 --max-days 120 --max-candidates 5
+```
+
+### Step 2: Scan known repos
+```bash
+python scripts/scan_known_repos.py
+```
+
+### Step 3: Fix each actionable candidate
+
+For each candidate, execute directly (no plan mode, no confirmation):
+
+```
+1. Fork:     gh repo fork <owner>/<repo> --clone=false
+2. Clone:    git clone https://github.com/dajiaohuang/<repo>.git <owner>-<repo>
+3. Read:     Read relevant source files
+4. Fix:     Apply the minimal change
+5. Test:    Run tests (pytest / npm test / cargo test / etc.)
+6. Commit:  git checkout -b fix/<N>-<slug> && git add -A && git commit
+7. Push:    git push origin fix/<N>-<slug>
+8. PR:      gh pr create --repo <owner>/<repo> --base <default-branch> --head dajiaohuang:fix/<N>-<slug>
+9. Track:   python scripts/pr_tracker.py add <pr-url> <issue-url>
+10. Clean:  rm -rf <clone-dir>; cd back to workspace
+```
+
+### Step 4: Handle failures
+
+- **PR creation fails** (GraphQL error, wrong base branch): check `gh api repos/<owner>/<repo> --jq '.default_branch'`, retry with correct base
+- **3 rounds empty**: expand `--min-stars` (5→3→1), `--max-days` (120→180→365), add new query types to `DIRECT_SEARCH_QUERIES`
+- **Actionable but too complex** (needs full dev environment): skip, note reason
+
+### Step 5: Loop
+
+Back to Step 1. Never stop unless interrupted.
+
 ## PR Rules
 
-- **Never open a PR without explicit user confirmation.** After pushing, present a summary and wait for approval.
+### Confirm Mode
+- Present summary, wait for user approval before `gh pr create`.
 
-### PR Template — Mandatory
+### Autonomous Mode
+- Create PR immediately after push. No confirmation needed.
+
+**PR Template — Mandatory**
 
 Always check `.github/pull_request_template.md` before opening a PR. If the repo has a template:
 - Copy its structure into your PR body
