@@ -76,7 +76,11 @@ gh pr list --repo <owner/repo> --state merged --search "#<N>" --json number,titl
 ```
 Check closed PRs — fixes may have merged without auto-closing. Also search for "Fixes #<N>" / "Closes #<N>" in PR bodies. If found → SKIP
 
-**Step 3 — Workload classification:**
+**Step 3 — Still reproducible on default branch?**
+If the repo is cloneable and buildable, quickly verify the bug still exists on the default branch.
+If the described behavior is already gone → SKIP (fixed without referencing the issue)
+
+**Step 4 — Workload classification:**
 
 | Effort  | Criteria                                    | Keep? |
 |---------|----------------------------------------------|-------|
@@ -87,7 +91,10 @@ Check closed PRs — fixes may have merged without auto-closing. Also search for
 
 Only keep **trivial** and **small**. Drop medium/large.
 
-**Step 4 — Issue quality check:**
+**Step 5 — Effort estimate:**
+Record files affected, lines of change, testing needed, any dependency risks.
+
+**Step 6 — Issue quality check:**
 - Clear reproduction steps or acceptance criteria?
 - Has a maintainer responded? What direction?
 - Is someone else already assigned or visibly working on it?
