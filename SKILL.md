@@ -53,19 +53,38 @@ discover.py → candidate JSON
 
 ## Hard Rules (apply to BOTH modes)
 
-### 1. Follow the Target Repo's Rules
+### 1. Plan Mode is Mandatory
 
-**Before writing a single line of code**, read the target repo's own guidelines. If the repo has a `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, or any other governance file, comply with every requirement in it.
+Whether the repo is specified by the user or auto-discovered, you MUST enter plan mode and get user approval before writing any code. The only exception is the Pre-Fix Checklist itself (reading commits/PRs/issue threads does not require a plan).
 
-- **PR template** — if `.github/pull_request_template.md` exists, fill it exactly
-- **Commit format** — follow the repo's convention; if `CONTRIBUTING.md` specifies one, use it
-- **Testing requirements** — if they require tests, add them
-- **Code style** — match their linter config
-- **Branch naming** — if they specify one, follow it; otherwise `fix/<issue-number>-<short-description>`
+> **Autonomous mode override:** When the user says "自动"/"不停"/"auto"/"autonomous", plan mode is skipped. All other rules still apply.
 
-### 2. No AI-Generated Markers in Commits or PRs
+### 2. Follow the Target Repo's Rules — No Exceptions
 
-**Never** include in commits or PRs: `Co-Authored-By: Claude`, `Generated with Claude Code`, `🤖`, mentions of Claude/Anthropic/AI/LLM. Write naturally.
+**Before writing a single line of code**, read the target repo's own guidelines. If the repo has a `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, or any other governance file, you MUST comply with every requirement in it. This is not optional — you are a guest in their project.
+
+Specifically:
+- **PR template** — if `.github/pull_request_template.md` exists, use its exact structure
+- **Commit format** — follow the repo's convention, not yours; if `CONTRIBUTING.md` specifies a format, use it
+- **Testing requirements** — if they require tests, add them; if they require `doctest` for every function, do it
+- **Code style** — match their linter config, not your preferences
+- **Branch naming** — if they specify a naming convention, follow it; otherwise use `fix/<issue-number>-<short-description>`
+- **Sign-off / DCO** — if the repo requires `Signed-off-by`, include it
+
+If you skip reading their guidelines and submit a non-compliant PR, you are wasting the maintainers' time. Read first, code second.
+
+### 3. No AI-Generated Markers in Commits or PRs — Zero Tolerance
+
+**Never** include any of the following in commit messages, PR titles, or PR bodies:
+
+- `Co-Authored-By: Claude`
+- `Generated with Claude Code`
+- `🤖 Generated with...`
+- Any mention of Claude, Anthropic, AI, or LLM assistance
+
+This applies to **every PR, every repo, no exceptions**. Even if the target repo does not explicitly ban AI content, these markers will cause maintainers to dismiss your contribution without review. Write commit messages and PR bodies naturally — the code is judged on its own merit, not its origin.
+
+Use natural language: `docs: add docstrings to helper functions` not `claude added docstrings`.
 
 ---
 
