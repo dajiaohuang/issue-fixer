@@ -124,6 +124,49 @@ def run_json(cmd, **kwargs):
 
 
 # ═══════════════════════════════════════════════════════════════════════
+# Seen-issue deduplication
+# ═══════════════════════════════════════════════════════════════════════
+
+SEEN_FILE = os.path.join(os.path.dirname(__file__), "..", "seen_issues.json")
+
+
+def _load_seen() -> set[tuple[str, int]]:
+    """Return set of (repo_full_name, issue_number) already seen."""
+    if not os.path.exists(SEEN_FILE):
+        return set()
+    try:
+        with open(SEEN_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return set()
+    if not isinstance(data, list):
+        return set()
+    return {(entry["repo"], entry["number"]) for entry in data if isinstance(entry, dict)}
+
+
+def _save_seen(seen: set[tuple[str, int]]) -> None:
+    """Persist seen issues as a sorted JSON list."""
+    items = sorted(
+        [{"repo": r, "number": n} for r, n in seen],
+        key=lambda x: (x["repo"], x["number"]),
+    )
+    with open(SEEN_FILE, "w", encoding="utf-8") as f:
+        json.dump(items, f, indent=2, ensure_ascii=False)
+
+
+def _mark_seen(repo_full_name: str, issue_number: int) -> None:
+    """Add an issue to the seen set and persist immediately."""
+    seen = _load_seen()
+    seen.add((repo_full_name, issue_number))
+    _save_seen(seen)
+
+
+def _is_seen(repo_full_name: str, issue_number: int) -> bool:
+    """Check if an issue has been seen before."""
+    return (repo_full_name, issue_number) in _load_seen()
+
+
+# ═══════════════════════════════════════════════════════════════════════
 # Smart Filters (applied to every candidate before output)
 # ═══════════════════════════════════════════════════════════════════════
 
@@ -444,6 +487,10 @@ def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8,
             rn = iss["_repo_full_name"]
             if not rn or is_list_repo(rn):
                 continue
+            num = iss["number"]
+            if _is_seen(rn, num):
+                continue  # already evaluated in a previous run
+            _mark_seen(rn, num)
             # Quick license check for direct issues
             license_key = "unknown"
             repo_info = run_json(
@@ -494,6 +541,10 @@ def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8,
         for issue in issues:
             if len(candidates) >= max_candidates:
                 break
+            num = issue["number"]
+            if _is_seen(full_name, num):
+                continue
+            _mark_seen(full_name, num)
             clone_dir = clone_dir or clone_repo_shallow(full_name)
             result = evaluate_issue(
                 full_name, repo["stars"], repo.get("license", "unknown"),
