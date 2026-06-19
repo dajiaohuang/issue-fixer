@@ -33,6 +33,19 @@ Specifically:
 
 If you skip reading their guidelines and submit a non-compliant PR, you are wasting the maintainers' time. Read first, code second.
 
+### 3. No AI-Generated Markers in Commits or PRs — Zero Tolerance
+
+**Never** include any of the following in commit messages, PR titles, or PR bodies:
+
+- `Co-Authored-By: Claude`
+- `Generated with Claude Code`
+- `🤖 Generated with...`
+- Any mention of Claude, Anthropic, AI, or LLM assistance
+
+This applies to **every PR, every repo, no exceptions**. Even if the target repo does not explicitly ban AI content, these markers will cause maintainers to dismiss your contribution without review. Write commit messages and PR bodies naturally — the code is judged on its own merit, not its origin.
+
+Use natural language: `docs: add docstrings to helper functions` not `claude added docstrings`.
+
 ---
 
 ## Workflow: Choosing a Target
@@ -174,14 +187,6 @@ Always check `.github/pull_request_template.md` before opening a PR. If the repo
 - Copy its structure into your PR body
 - Fill every applicable checkbox — bots WILL close PRs with unchecked boxes
 - If the template asks for a description, screenshot, or changelog entry, provide it
-
-### PR Body — No AI-Generated Markers
-
-Some repos explicitly ban AI-generated content. To avoid PRs being closed or accounts flagged:
-- **Never** include `Co-Authored-By: Claude`, `Generated with Claude Code`, or similar AI footers
-- Do not mention that the code was assisted by AI
-- Write the PR body in natural, personal language
-- The code should speak for itself — the maintainer judges the fix, not the origin
 
 ### Before Asking for Confirmation
 
