@@ -71,10 +71,19 @@ PRIORITY_LABELS = {
 # Label pairs for cross-filtering (both labels must match)
 # Quality-filtered direct search queries
 DIRECT_SEARCH_QUERIES = [
+    # Label-based
     ("label:bug", "updated"),
     ("label:good-first-issue", "updated"),
-    ("label:help-wanted", "updated"),
+    ("label:help-wanted", "created"),
     ("label:bug", "created"),
+    # Body keyword searches (no label required)
+    ('"steps to reproduce" in:body', "created"),
+    ('"expected behavior" in:body', "created"),
+    # Language-scoped
+    ("label:bug language:python", "updated"),
+    ("label:bug language:typescript", "updated"),
+    ("label:bug language:javascript", "created"),
+    ("label:good-first-issue language:python", "created"),
 ]
 
 # Repos whose full_name matches any of these patterns are excluded
@@ -331,7 +340,7 @@ def get_direct_issues(count=30):
     - NOT checklist/template → exclude doc-only repos
     """
     all_issues = []
-    queries = random.sample(DIRECT_SEARCH_QUERIES, min(2, len(DIRECT_SEARCH_QUERIES)))
+    queries = random.sample(DIRECT_SEARCH_QUERIES, min(3, len(DIRECT_SEARCH_QUERIES)))
 
     for label_q, sort_order in queries:
         # Build query as separate args (NOT with -- separator)
