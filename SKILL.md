@@ -65,99 +65,61 @@ The user provides a repo (`owner/repo`) and optionally an issue number.
 
 ### Mode B — Auto-Discover
 
-Find **3 low-effort, unaddressed issues** from trending repos and let the user pick.
+#### Step 1: Run the Discovery Script
 
-#### Phase 1: Source Trending Repos
+Use `scripts/discover.py` to automate all mechanical checks (repo search, commit grep, PR search, linked PR check):
 
-Query GitHub trending repos with recent pushes:
 ```bash
-gh api -X GET search/repositories \
-  -f q='pushed:>$(date -d "7 days ago" +%Y-%m-%d) stars:>100' \
-  -f sort=stars -f order=desc -f per_page=10 \
-  --jq '.items[] | {full_name, stars: .stargazers_count, pushed_at, language}'
+python scripts/discover.py --min-stars 100 --max-days 7 --repo-count 10 --max-candidates 10
 ```
 
-**Repo filters:**
-- Stars: ≥ 100, pushed within 7 days
-- Has open issues with recent activity
-- Has a license file (skip unlicensed repos)
-- Prefer repos with `CONTRIBUTING.md` or `CLAUDE.md`
+Parameters:
+- `--min-stars` — minimum repo stars (default 100, lower to 50 or 30 if no results)
+- `--max-days` — last push within N days (default 7, expand to 14 or 30)
+- `--repo-count` — repos to scan (default 10)
+- `--max-candidates` — max issues to return (default 10)
 
-#### Phase 2: Issue Triage
+The script outputs a JSON array of candidates that passed all checks. It handles Steps 1-3 of the pipeline automatically:
+- Searches commits for issue references
+- Searches open/closed/merged PRs
+- Checks `closedByPullRequestsReferences` on the issue
+- Filters out assigned issues
 
-For each trending repo, walk issues **from newest to oldest**, running this pipeline on each. Stop scanning once you have **3 qualified candidates** across all repos.
+#### Step 2: Classify & Present
 
-##### Issue Evaluation Pipeline
+Read the JSON output. For each candidate, apply your judgment:
 
-Run each check in order. If any fails, skip and move to the next issue.
+**Workload classification:**
 
-**Step 1 — Already addressed in commits?**
-```bash
-git log --all --oneline --grep="#<N>" --since="<issue.created_at>"
-git log --all --oneline --grep="<key terms>" --since="<issue.created_at>"
-```
-If a commit references the issue or describes the fix → SKIP
+| Effort  | Criteria                                    |
+|---------|----------------------------------------------|
+| trivial | Typo, dead link, comment fix, single-line    |
+| small   | ≤3 files, ≤30 lines, single function/logic   |
+| medium  | 3–8 files, new endpoint, DB migration        |
+| large   | API change, multi-service, design discussion |
 
-**Step 2 — Already addressed in PRs?**
-```bash
-gh pr list --repo <owner/repo> --state all --search "<keywords>" --json number,title,state
-gh pr list --repo <owner/repo> --state merged --search "#<N>" --json number,title
-```
-Check closed PRs — fixes may have merged without auto-closing. Also search for "Fixes #<N>" / "Closes #<N>" in PR bodies. If found → SKIP
-
-**Step 3 — Still reproducible on default branch?**
-If the repo is cloneable and buildable, quickly verify the bug still exists on the default branch.
-If the described behavior is already gone → SKIP (fixed without referencing the issue)
-
-**Step 4 — Workload classification:**
-
-| Effort  | Criteria                                    | Keep? |
-|---------|----------------------------------------------|-------|
-| trivial | Typo, dead link, comment fix, single-line    | ✓     |
-| small   | ≤3 files, ≤30 lines, single function/logic   | ✓     |
-| medium  | 3–8 files, new endpoint, DB migration        | ✗     |
-| large   | API change, multi-service, design discussion | ✗     |
-
-Only keep **trivial** and **small**. Drop medium/large.
-
-**Step 5 — Effort estimate:**
-Record files affected, lines of change, testing needed, any dependency risks.
-
-**Step 6 — Issue quality check:**
+**Issue quality check:**
 - Clear reproduction steps or acceptance criteria?
 - Has a maintainer responded? What direction?
-- Is someone else already assigned or visibly working on it?
-Drop underspecified or already-claimed issues.
+- Underspecified or already claimed?
 
-**Priority labels to favor:**
+#### Step 3: Present All Candidates as a Table
 
-| Category          | Labels                                          |
-|-------------------|-------------------------------------------------|
-| Bug fix           | `bug`, `fix`                                    |
-| Small feature     | `enhancement`, `feature`, `good first issue`    |
-| Documentation     | `documentation`, `docs`                         |
-| Test improvement  | `test`, `testing`, `coverage`                   |
-| Typo / formatting | `typo`, `chore`, `style`                        |
-| Dependency update | `dependencies`                                  |
-| Error message     | `ux`, `error-handling`                          |
-| Dead code removal | `cleanup`, `refactor`                           |
-| Configuration     | `config`, `ci`, `chore`                         |
-| Accessibility     | `accessibility`, `a11y`                         |
+Present a table with **all** candidates that passed mechanical checks. Let the user pick.
 
-#### Phase 3: Present 3 Candidates
+| # | Repo | Issue | Type | Effort | Est. | Guidelines |
+|---|------|-------|------|--------|------|------------|
+| 1 | owner/repo | [#N](url) Title | bug | small | ~20 lines | CONTRIBUTING.md |
+| 2 | ... | ... | ... | ... | ... | fallback |
 
-1. **Enter plan mode.** Present exactly **3 candidates**. For each, include:
-   - Repo name, issue number, issue title (linked)
-   - Workload + estimate (e.g., "small, ~3 files, ~20 lines, 15 min")
-   - Whether the repo has its own guidelines or will use fallback
-   - One-line summary of the fix approach
+For each row include a one-line fix summary. Only show `trivial` and `small` candidates — drop `medium`/`large`.
 
-2. Let the user choose one (or reject all). Do not start until user approves.
+#### Fallback
 
-3. If **fewer than 3** candidates survive across all trending repos, expand the search:
-   - Lower star threshold (100 → 50 → 30)
-   - Broaden date range (7d → 14d → 30d)
-   - If still not enough, report what was found and ask for direction.
+If the script returns zero candidates, expand the search:
+- Lower `--min-stars` (100 → 50 → 30)
+- Broaden `--max-days` (7 → 14 → 30)
+- If still nothing, report and ask for direction.
 
 ---
 
