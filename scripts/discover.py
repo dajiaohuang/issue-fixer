@@ -84,6 +84,12 @@ DIRECT_SEARCH_QUERIES = [
     ("label:bug language:typescript", "updated"),
     ("label:bug language:javascript", "created"),
     ("label:good-first-issue language:python", "created"),
+    # Error-pattern searches (catch real bugs from body text)
+    ("TypeError in:body language:python", "created"),
+    ("AttributeError in:body language:python", "created"),
+    ("TypeError in:body language:typescript", "created"),
+    ("NullPointerException in:body", "created"),
+    ('"is not defined" in:body language:javascript', "created"),
 ]
 
 # Repos whose full_name matches any of these patterns are excluded

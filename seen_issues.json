@@ -1,5 +1,133 @@
 [
   {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2315
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2318
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2369
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2393
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2399
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2400
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2434
+  },
+  {
+    "repo": "AcademySoftwareFoundation/OpenCue",
+    "number": 2438
+  },
+  {
+    "repo": "Acode-Foundation/Acode",
+    "number": 2345
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1446
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1449
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1463
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1464
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1467
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1469
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1491
+  },
+  {
+    "repo": "AltairaLabs/Omnia",
+    "number": 1496
+  },
+  {
+    "repo": "CVHub520/X-AnyLabeling",
+    "number": 1397
+  },
+  {
+    "repo": "CardanoSolutions/ogmios",
+    "number": 460
+  },
+  {
+    "repo": "CredenceOrg/Credence-Contracts",
+    "number": 490
+  },
+  {
+    "repo": "CredenceOrg/Credence-Contracts",
+    "number": 494
+  },
+  {
+    "repo": "DAMUSIA/Kaamao",
+    "number": 76
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 586
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 602
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 639
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 640
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 644
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 647
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 660
+  },
+  {
+    "repo": "DMTF/Redfish-Service-Validator",
+    "number": 663
+  },
+  {
+    "repo": "DMTF/Redfish-Use-Case-Checkers",
+    "number": 18
+  },
+  {
+    "repo": "DMTF/Redfish-Use-Case-Checkers",
+    "number": 62
+  },
+  {
     "repo": "EffortlessMetrics/perl-lsp",
     "number": 6758
   },
@@ -16,16 +144,248 @@
     "number": 6762
   },
   {
+    "repo": "FairyEver/Synapse",
+    "number": 1858
+  },
+  {
+    "repo": "Finsys/dockhand",
+    "number": 1204
+  },
+  {
+    "repo": "GussLacerda/colaborar-com-github-desktop",
+    "number": 3
+  },
+  {
+    "repo": "Harsh-Bajpai-1194/Real-Time-Chat-App",
+    "number": 16
+  },
+  {
+    "repo": "HaydenHildreth/RandPyPwMan",
+    "number": 141
+  },
+  {
+    "repo": "IacobIonut01/ReFra",
+    "number": 976
+  },
+  {
+    "repo": "Ikalus1988/MisakaNet",
+    "number": 218
+  },
+  {
+    "repo": "Ikalus1988/MisakaNet",
+    "number": 219
+  },
+  {
     "repo": "LerianStudio/github-actions-shared-workflows",
     "number": 451
+  },
+  {
+    "repo": "LineageOS/issues",
+    "number": 114
+  },
+  {
+    "repo": "MintyItanium/Lost-Auction",
+    "number": 30
+  },
+  {
+    "repo": "Moonfin-Client/Smart-TV",
+    "number": 255
+  },
+  {
+    "repo": "NanmiCoder/cc-haha",
+    "number": 874
+  },
+  {
+    "repo": "NationalSecurityAgency/ghidra",
+    "number": 9292
+  },
+  {
+    "repo": "NeoFreeBird/app",
+    "number": 115
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49195
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49196
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49198
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49200
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49201
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49206
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49213
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49223
   },
   {
     "repo": "OpenSIN-AI/OpenSIN-Chat",
     "number": 249
   },
   {
+    "repo": "OpenSIN-AI/OpenSIN-Chat",
+    "number": 250
+  },
+  {
+    "repo": "SSmale/Duux-Home-Assistant",
+    "number": 94
+  },
+  {
+    "repo": "SerbiaStrong-220/space-station-14",
+    "number": 4373
+  },
+  {
+    "repo": "Seretos/workboard",
+    "number": 74
+  },
+  {
+    "repo": "SiVeci/JavDB_magnet_Spider",
+    "number": 4
+  },
+  {
+    "repo": "Stelllar-Works/Stellar-work-",
+    "number": 16
+  },
+  {
+    "repo": "TamgaTurkiye/ai-safety-lab",
+    "number": 3
+  },
+  {
+    "repo": "TamgaTurkiye/crypto-privacy-lab",
+    "number": 1
+  },
+  {
+    "repo": "TamgaTurkiye/crypto-privacy-lab",
+    "number": 3
+  },
+  {
+    "repo": "TamgaTurkiye/malware-threat-analysis",
+    "number": 1
+  },
+  {
+    "repo": "TamgaTurkiye/malware-threat-analysis",
+    "number": 2
+  },
+  {
+    "repo": "TamgaTurkiye/malware-threat-analysis",
+    "number": 3
+  },
+  {
+    "repo": "TamgaTurkiye/malware-threat-analysis",
+    "number": 4
+  },
+  {
+    "repo": "Termix-SSH/Support",
+    "number": 830
+  },
+  {
+    "repo": "TheGITofTeo997/quietfoxReborn",
+    "number": 17
+  },
+  {
+    "repo": "TheGITofTeo997/quietfoxReborn",
+    "number": 18
+  },
+  {
+    "repo": "TheGreenCedar/CodeStory",
+    "number": 154
+  },
+  {
+    "repo": "TheGreenCedar/CodeStory",
+    "number": 155
+  },
+  {
+    "repo": "TheGreenCedar/CodeStory",
+    "number": 156
+  },
+  {
+    "repo": "TheGreenCedar/CodeStory",
+    "number": 157
+  },
+  {
+    "repo": "TheGreenCedar/CodeStory",
+    "number": 158
+  },
+  {
+    "repo": "TrainLCD/StationAPI",
+    "number": 1030
+  },
+  {
+    "repo": "TrainLCD/StationAPI",
+    "number": 1498
+  },
+  {
+    "repo": "VATSIM-UK/UK-Sector-File",
+    "number": 6210
+  },
+  {
+    "repo": "YingkeSu/novel2Animatic",
+    "number": 30
+  },
+  {
     "repo": "ZoneMinder/zoneminder",
     "number": 4944
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 445
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 1533
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 1888
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 1921
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 2048
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 2052
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 2168
+  },
+  {
+    "repo": "agenticsnz/unsorry",
+    "number": 2172
+  },
+  {
+    "repo": "aleksey-hoffman/sigma-file-manager",
+    "number": 505
+  },
+  {
+    "repo": "alzproducts/alz-core",
+    "number": 908
+  },
+  {
+    "repo": "anupchavan/obsidian-custom-views",
+    "number": 8
   },
   {
     "repo": "aws/karpenter-provider-aws",
@@ -36,12 +396,212 @@
     "number": 510
   },
   {
+    "repo": "bit-team/backintime",
+    "number": 1449
+  },
+  {
+    "repo": "bosancz/interni-sekce",
+    "number": 199
+  },
+  {
+    "repo": "cclib/cclib",
+    "number": 1806
+  },
+  {
+    "repo": "celzero/rethink-app",
+    "number": 2785
+  },
+  {
+    "repo": "cervantesh/cervo-mutants",
+    "number": 269
+  },
+  {
+    "repo": "cline/cline",
+    "number": 11669
+  },
+  {
+    "repo": "colinvkim/Radix",
+    "number": 1
+  },
+  {
+    "repo": "craftcms/cms",
+    "number": 19132
+  },
+  {
+    "repo": "crazy-max/docker-nextcloud",
+    "number": 32
+  },
+  {
+    "repo": "crazy-max/docker-nextcloud",
+    "number": 202
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 9
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 48
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 62
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 63
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 75
+  },
+  {
+    "repo": "crazy-max/ftpgrab",
+    "number": 252
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 270
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 280
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 281
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 282
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 332
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 368
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 403
+  },
+  {
+    "repo": "crazy-max/swarm-cronjob",
+    "number": 426
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 1951
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2024
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2037
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2047
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2091
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2145
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2232
+  },
+  {
+    "repo": "dagucloud/dagu",
+    "number": 2251
+  },
+  {
     "repo": "damontecres/Wholphin",
     "number": 747
   },
   {
+    "repo": "damontecres/Wholphin",
+    "number": 1595
+  },
+  {
+    "repo": "davidgidali/gencanvas-dist",
+    "number": 123
+  },
+  {
+    "repo": "davidgidali/gencanvas-dist",
+    "number": 124
+  },
+  {
     "repo": "doxygen/doxygen",
     "number": 12213
+  },
+  {
+    "repo": "exequtic/apdatifier",
+    "number": 218
+  },
+  {
+    "repo": "fishjar/kiss-translator",
+    "number": 823
+  },
+  {
+    "repo": "fluxerapp/fluxer",
+    "number": 1099
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 6045
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 6561
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 6799
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 6824
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 6896
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 7321
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 7327
+  },
+  {
+    "repo": "flwrlabs/flower",
+    "number": 7375
+  },
+  {
+    "repo": "gchq/CyberChef",
+    "number": 2583
+  },
+  {
+    "repo": "hagezi/dns-blocklists",
+    "number": 10579
+  },
+  {
+    "repo": "hatamiarash7/iranleague-exporter",
+    "number": 2
+  },
+  {
+    "repo": "helmuth6553-dotcom/WoBePlaner",
+    "number": 217
   },
   {
     "repo": "hotwax/order-routing",
@@ -52,8 +612,80 @@
     "number": 379
   },
   {
+    "repo": "im-anishraj/arnio",
+    "number": 2555
+  },
+  {
+    "repo": "integrationMCTaw1va/integrationMCT",
+    "number": 119576
+  },
+  {
+    "repo": "jackyzha0/quartz",
+    "number": 2456
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 103
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 106
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 120
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 164
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 165
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 170
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 172
+  },
+  {
+    "repo": "jentic/jentic-openapi-tools",
+    "number": 230
+  },
+  {
+    "repo": "joshmrtn/openclaw-bridge",
+    "number": 188
+  },
+  {
+    "repo": "kburson/ai-task-manager",
+    "number": 459
+  },
+  {
+    "repo": "kubedoio/rustchat",
+    "number": 92
+  },
+  {
     "repo": "kyuule/test-sandbox",
     "number": 1
+  },
+  {
+    "repo": "laozhengfanle/monorepo-starter",
+    "number": 6
+  },
+  {
+    "repo": "leukipp/touchkio",
+    "number": 215
+  },
+  {
+    "repo": "linuxmint/cinnamon",
+    "number": 13823
+  },
+  {
+    "repo": "majkinetor/musicbrainz-userscripts",
+    "number": 254
   },
   {
     "repo": "masbertototo1-lang/scaling-adventure",
@@ -64,6 +696,46 @@
     "number": 6
   },
   {
+    "repo": "masbertototo1-lang/scaling-adventure",
+    "number": 7
+  },
+  {
+    "repo": "masbertototo1-lang/scaling-adventure",
+    "number": 8
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 551
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 552
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 555
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 557
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 560
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 563
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 566
+  },
+  {
+    "repo": "mblua/AgentsCommander",
+    "number": 568
+  },
+  {
     "repo": "medusajs/medusa",
     "number": 14106
   },
@@ -72,15 +744,219 @@
     "number": 1305
   },
   {
+    "repo": "microsoft/winget-pkgs",
+    "number": 390400
+  },
+  {
+    "repo": "microsoft/winget-pkgs",
+    "number": 390578
+  },
+  {
+    "repo": "mistweaverco/kulala.nvim",
+    "number": 847
+  },
+  {
+    "repo": "mohdmaazgani/symptom-scribe-clean",
+    "number": 428
+  },
+  {
+    "repo": "mohitkumhar/business-ai-agent",
+    "number": 482
+  },
+  {
+    "repo": "mohitkumhar/business-ai-agent",
+    "number": 485
+  },
+  {
+    "repo": "mrveiss/AutoBot-AI",
+    "number": 10017
+  },
+  {
+    "repo": "mrveiss/AutoBot-AI",
+    "number": 10234
+  },
+  {
     "repo": "munkyboi/getprio",
     "number": 16
+  },
+  {
+    "repo": "neurodesk/neurodesktop",
+    "number": 620
+  },
+  {
+    "repo": "nhsengland/nhs_herbot",
+    "number": 11
+  },
+  {
+    "repo": "nocodb/nocodb",
+    "number": 14107
   },
   {
     "repo": "open-mercato/open-mercato",
     "number": 3269
   },
   {
+    "repo": "openai/codex",
+    "number": 26234
+  },
+  {
+    "repo": "openclaw/openclaw",
+    "number": 95079
+  },
+  {
     "repo": "petry-projects/.github-private",
     "number": 781
+  },
+  {
+    "repo": "pewdiepie-archdaemon/odysseus",
+    "number": 4510
+  },
+  {
+    "repo": "pmgraham/datagrunt",
+    "number": 168
+  },
+  {
+    "repo": "pmgraham/datagrunt",
+    "number": 176
+  },
+  {
+    "repo": "pmgraham/datagrunt",
+    "number": 177
+  },
+  {
+    "repo": "pmgraham/datagrunt",
+    "number": 242
+  },
+  {
+    "repo": "rerost/giro",
+    "number": 38
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 140
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 145
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 152
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 155
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 202
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 210
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 211
+  },
+  {
+    "repo": "siddsachar/row-bot",
+    "number": 213
+  },
+  {
+    "repo": "sis-inf/escuadra",
+    "number": 316
+  },
+  {
+    "repo": "sis-inf/escuadra",
+    "number": 336
+  },
+  {
+    "repo": "sis-inf/estante",
+    "number": 314
+  },
+  {
+    "repo": "sis-inf/trazo",
+    "number": 243
+  },
+  {
+    "repo": "sis-inf/trazo",
+    "number": 252
+  },
+  {
+    "repo": "sis-inf/trazo",
+    "number": 275
+  },
+  {
+    "repo": "smart-swimmingpool/website",
+    "number": 25
+  },
+  {
+    "repo": "smart-swimmingpool/website",
+    "number": 26
+  },
+  {
+    "repo": "swyxio/gh-action-data-scraping",
+    "number": 1
+  },
+  {
+    "repo": "swyxio/gh-action-data-scraping",
+    "number": 2
+  },
+  {
+    "repo": "szmidtpiotr/ai-gm",
+    "number": 829
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 318
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 324
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 325
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 326
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 335
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 338
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 343
+  },
+  {
+    "repo": "tashfeenahmed/freellmapi",
+    "number": 345
+  },
+  {
+    "repo": "towerwatchman/Atlas",
+    "number": 122
+  },
+  {
+    "repo": "upbound/upbound",
+    "number": 46
+  },
+  {
+    "repo": "warscribe-app/feedback",
+    "number": 71
+  },
+  {
+    "repo": "webjsdev/webjs",
+    "number": 649
+  },
+  {
+    "repo": "wekan/wekan",
+    "number": 6398
   }
 ]
