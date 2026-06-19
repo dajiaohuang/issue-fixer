@@ -13,9 +13,25 @@ description: >
 
 This skill guides Claude through fixing GitHub issues in arbitrary repositories. The workspace directory (`D:\repo\issue-fixer`) is a staging area — target repos are forked and cloned into subdirectories here, worked on, and cleaned up after the PR is merged or closed.
 
-## Hard Rule — Plan Mode is Mandatory for ALL Fixes
+## Hard Rules
+
+### 1. Plan Mode is Mandatory for ALL Fixes
 
 Whether the repo is specified by the user or auto-discovered, you MUST enter plan mode and get user approval before writing any code. The only exception is the Pre-Fix Checklist itself (reading commits/PRs/issue threads does not require a plan).
+
+### 2. Follow the Target Repo's Rules — No Exceptions
+
+**Before writing a single line of code**, read the target repo's own guidelines. If the repo has a `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, or any other governance file, you MUST comply with every requirement in it. This is not optional — you are a guest in their project.
+
+Specifically:
+- **PR template** — if `.github/pull_request_template.md` exists, use its exact structure
+- **Commit format** — follow the repo's convention, not yours; if `CONTRIBUTING.md` specifies a format, use it
+- **Testing requirements** — if they require tests, add them; if they require `doctest` for every function, do it
+- **Code style** — match their linter config, not your preferences
+- **Branch naming** — if they specify a naming convention, follow it; otherwise use `fix/<issue-number>-<short-description>`
+- **Sign-off / DCO** — if the repo requires `Signed-off-by`, include it
+
+If you skip reading their guidelines and submit a non-compliant PR, you are wasting the maintainers' time. Read first, code second.
 
 ---
 
@@ -160,6 +176,8 @@ git clone https://github.com/<your-username>/<repo>.git <owner>-<repo>
 ---
 
 ## Pre-Fix Checklist (Mandatory for Every Issue)
+
+0. **Read the repo's contribution rules first** — before anything else, find and read `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, `.github/pull_request_template.md`, and any linter config. If the repo tells you how to do something, you follow that rule. No exceptions.
 
 1. **Check commits** — search for the issue number and related keywords since the issue's creation date.
 2. **Check PRs** — search open, closed, and merged PRs for references to the issue.
