@@ -68,8 +68,13 @@ PRIORITY_LABELS = {
     "cleanup", "refactor", "config", "ci", "accessibility", "a11y",
 }
 
-DIRECT_SEARCH_LABELS = [
-    "good-first-issue", "bug", "help-wanted", "good first issue",
+# Label pairs for cross-filtering (both labels must match)
+# Quality-filtered direct search queries
+DIRECT_SEARCH_QUERIES = [
+    ("label:bug reactions:>1", "updated"),
+    ("label:bug comments:>0", "updated"),
+    ("label:good-first-issue comments:>0", "updated"),
+    ("label:help-wanted comments:>1", "updated"),
 ]
 
 # Repos whose full_name matches any of these patterns are excluded
@@ -273,18 +278,28 @@ def get_keyword_repos(min_stars=10, max_stars=0, max_days=14, count=10):
 # Strategy C: Direct issue search (reverse check repo after finding issue)
 # ═══════════════════════════════════════════════════════════════════════
 
-def get_direct_issues(count=20):
-    """Search issues directly by label, skip repo-first discovery."""
+def get_direct_issues(count=30):
+    """Search issues with quality signals: reactions, comments, sorted by updated.
+
+    Uses single-label queries with engagement filters:
+    - reactions:>1 → real users encountered the problem
+    - comments:>0 → discussion exists (not a template shell)
+    - sorted by updated → recent maintainer/community activity
+    - NOT checklist/template → exclude doc-only repos
+    """
     all_issues = []
-    for label in DIRECT_SEARCH_LABELS[:2]:
+    queries = random.sample(DIRECT_SEARCH_QUERIES, min(2, len(DIRECT_SEARCH_QUERIES)))
+
+    for label_q, sort_order in queries:
+        # Build query as separate args (NOT with -- separator)
+        query_parts = f"{label_q} is:open NOT checklist NOT template".split()
         result = run_json(
             ["gh", "search", "issues",
-             "--label", label,
-             "--state", "open",
-             "--sort", "created",
+             "--limit", str(count // len(queries)),
+             "--sort", sort_order,
              "--order", "desc",
-             "--limit", str(count // 2),
-             "--json", "number,title,body,createdAt,labels,repository,commentsCount,assignees"],
+             "--json", "number,title,body,createdAt,labels,repository,commentsCount,assignees",
+             *query_parts],
             timeout=30,
         )
         if result:
@@ -297,7 +312,8 @@ def get_direct_issues(count=20):
                     continue
                 item["_repo_full_name"] = rn
                 all_issues.append(item)
-    # Deduplicate by (repo, number)
+
+    # Deduplicate
     seen = set()
     unique = []
     for iss in all_issues:
