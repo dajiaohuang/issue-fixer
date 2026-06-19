@@ -1,0 +1,146 @@
+[
+  {
+    "repo": "TheAlgorithms/Python",
+    "pr_number": 14829,
+    "pr_url": "https://github.com/TheAlgorithms/Python/pull/14829",
+    "issue_url": "https://github.com/TheAlgorithms/Python/issues/14773",
+    "state": "OPEN",
+    "created_at": "2026-06-19T17:00:19Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 9,
+      "success": 6,
+      "failure": 0,
+      "skipped": 2,
+      "pending": 1
+    },
+    "last_checked": "2026-06-19T18:15:21.364609+00:00"
+  },
+  {
+    "repo": "bit-team/backintime",
+    "pr_number": 2524,
+    "pr_url": "https://github.com/bit-team/backintime/pull/2524",
+    "issue_url": "https://github.com/bit-team/backintime/issues/2495",
+    "state": "OPEN",
+    "created_at": "2026-06-19T16:47:56Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 1,
+      "success": 1,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:15:22.028792+00:00"
+  },
+  {
+    "repo": "cafferychen777/gmail-mcp",
+    "pr_number": 68,
+    "pr_url": "https://github.com/cafferychen777/gmail-mcp/pull/68",
+    "issue_url": "https://github.com/cafferychen777/gmail-mcp/issues/3",
+    "state": "OPEN",
+    "created_at": "2026-06-19T16:47:59Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:15:22.725440+00:00"
+  },
+  {
+    "repo": "MervinPraison/PraisonAI",
+    "pr_number": 2058,
+    "pr_url": "https://github.com/MervinPraison/PraisonAI/pull/2058",
+    "issue_url": "https://github.com/MervinPraison/PraisonAI/issues/2056",
+    "state": "OPEN",
+    "created_at": "2026-06-19T17:22:39Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 2,
+      "success": 1,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 1
+    },
+    "last_checked": "2026-06-19T18:15:23.388216+00:00"
+  },
+  {
+    "repo": "schmitech/orbit",
+    "pr_number": 227,
+    "pr_url": "https://github.com/schmitech/orbit/pull/227",
+    "issue_url": "https://github.com/schmitech/orbit/issues/226",
+    "state": "MERGED",
+    "created_at": "2026-06-19T17:45:54Z",
+    "merged_at": "2026-06-19T18:11:28Z",
+    "closed_at": "2026-06-19T18:11:28Z",
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:15:24.085906+00:00"
+  },
+  {
+    "repo": "public-apis/public-apis",
+    "pr_number": 6357,
+    "pr_url": "https://github.com/public-apis/public-apis/pull/6357",
+    "issue_url": "https://github.com/public-apis/public-apis/issues/6324",
+    "state": "OPEN",
+    "created_at": "2026-06-19T17:51:37Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:15:24.810681+00:00"
+  },
+  {
+    "repo": "public-apis/public-apis",
+    "pr_number": 6358,
+    "pr_url": "https://github.com/public-apis/public-apis/pull/6358",
+    "issue_url": "https://github.com/public-apis/public-apis/issues/6284",
+    "state": "OPEN",
+    "created_at": "2026-06-19T17:51:39Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T18:15:25.553898+00:00"
+  },
+  {
+    "repo": "EbookFoundation/free-programming-books",
+    "pr_number": 13313,
+    "pr_url": "https://github.com/EbookFoundation/free-programming-books/pull/13313",
+    "issue_url": "https://github.com/EbookFoundation/free-programming-books/issues/13309",
+    "state": "OPEN",
+    "created_at": "2026-06-19T17:55:36Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 5,
+      "success": 4,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 1
+    },
+    "last_checked": "2026-06-19T18:15:26.255838+00:00"
+  }
+]
