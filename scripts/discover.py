@@ -71,10 +71,10 @@ PRIORITY_LABELS = {
 # Label pairs for cross-filtering (both labels must match)
 # Quality-filtered direct search queries
 DIRECT_SEARCH_QUERIES = [
-    ("label:bug reactions:>1", "updated"),
-    ("label:bug comments:>0", "updated"),
-    ("label:good-first-issue comments:>0", "updated"),
-    ("label:help-wanted comments:>1", "updated"),
+    ("label:bug", "updated"),
+    ("label:good-first-issue", "updated"),
+    ("label:help-wanted", "updated"),
+    ("label:bug", "created"),
 ]
 
 # Repos whose full_name matches any of these patterns are excluded
