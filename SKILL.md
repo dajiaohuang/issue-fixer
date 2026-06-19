@@ -245,6 +245,43 @@ PR description should include: what the issue was, root cause, how the fix works
 ### After Submitting
 - Respond to review feedback promptly. Each requested change either gets applied or gets a clear explanation.
 - Clean up the local clone after merge or closure.
+- **Register the PR in the tracker** after creation:
+  ```bash
+  python scripts/pr_tracker.py add <pr-url> <issue-url>
+  ```
+
+---
+
+## PR Tracking
+
+All submitted PRs are tracked in `pr_tracker.json`. Use `scripts/pr_tracker.py`:
+
+```bash
+# Add a PR after creating it
+python scripts/pr_tracker.py add "https://github.com/owner/repo/pull/N" "https://github.com/owner/repo/issues/N"
+
+# Check status of all tracked PRs (state changes, CI, reviews, new comments)
+python scripts/pr_tracker.py check
+
+# List all tracked PRs
+python scripts/pr_tracker.py list
+```
+
+The `check` command reports:
+- State changes (OPEN → MERGED / CLOSED)
+- CI status (pass/fail/pending)
+- New reviews (approved, changes requested, commented)
+- New comments since last check
+
+**When to check:**
+- After every batch of new PRs is created
+- When resuming a session to catch CI failures or review feedback
+- Periodically for PRs that are awaiting merge
+
+**When a check finds an issue** (CI failure, requested changes, review comment):
+- Fix the problem immediately
+- Push the fix to the same branch (PR updates automatically)
+- Run `check` again to verify
 
 ---
 
