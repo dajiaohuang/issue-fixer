@@ -168,7 +168,7 @@ def is_bad_license(license_key):
     """Reject repos with restrictive, unclear, or no license."""
     if not license_key:
         return True
-    bad = {"other", "noassertion", "none", "unlicense"}
+    bad = {"other", "noassertion", "none", "unlicense", "unknown"}
     if (license_key or "").lower() in bad:
         return True
     return False
@@ -434,14 +434,13 @@ def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8,
                 ["gh", "api", f"repos/{rn}", "--jq", "{stars: .stargazers_count, license: .license.spdx_id}"],
                 timeout=10,
             )
-            if repo_info:
-                license_key = repo_info.get("license", "unknown") or "unknown"
-                stars = repo_info.get("stars", 0)
-            else:
-                stars = 0
+            if not repo_info:
+                continue  # API call failed, can't verify
+            license_key = repo_info.get("license", "unknown") or "unknown"
+            stars = repo_info.get("stars", 0)
 
-            if stars <= 0:
-                continue  # skip repos with no stars (likely test/template repos)
+            if stars < 5:
+                continue  # skip tiny repos (likely personal/sandbox projects)
 
             result = evaluate_issue(
                 rn, stars, license_key, iss, clone_dir=None,
