@@ -205,7 +205,11 @@ Verify:
 0. **Read the repo's contribution rules first** — before anything else, find and read `CONTRIBUTING.md`, `CLAUDE.md`, `DEVELOPMENT.md`, `.github/pull_request_template.md`, and any linter config. If the repo tells you how to do something, you follow that rule. No exceptions.
 
 1. **Check commits** — search for the issue number and related keywords since the issue's creation date.
-2. **Check PRs** — search open, closed, and merged PRs for references to the issue.
+2. **Check PRs** — search open, closed, and merged PRs for references to the issue. Also check the issue's linked PRs directly:
+   ```bash
+   gh issue view <N> --repo <owner/repo> --json closedByPullRequestsReferences --jq '.closedByPullRequestsReferences | length'
+   ```
+   If the returned count is > 0, the issue already has a linked PR that may close it. SKIP.
 3. **Verify still open** — confirm via `gh issue view <number>`.
 4. **Read the full thread** — understand maintainer direction, check if someone else is already working on it, and look for consensus on approach.
 
