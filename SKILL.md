@@ -36,48 +36,31 @@ The user provides a repo (`owner/repo`) and optionally an issue number.
 
 ### Mode B — Auto-Discover
 
-Find low-effort, unaddressed issues in active open-source repos. Three phases: repo sourcing → issue triage → candidate presentation.
+Find **3 low-effort, unaddressed issues** from trending repos and let the user pick.
 
-#### Phase 1: Repo Sourcing
+#### Phase 1: Source Trending Repos
 
-Use BOTH strategies to build a pool of 5–10 candidate repos.
-
-**Strategy A — GitHub Trending**
+Query GitHub trending repos with recent pushes:
 ```bash
 gh api -X GET search/repositories \
   -f q='pushed:>$(date -d "7 days ago" +%Y-%m-%d) stars:>100' \
   -f sort=stars -f order=desc -f per_page=10 \
-  --jq '.items[] | {full_name, stars: .stargazers_count, pushed_at, language, topics: .topics}'
-```
-
-**Strategy B — Domain Keyword Sampling**
-Pick a random keyword from the pool below (rotate each session) to avoid always landing in the same trending repos:
-```
-"inventory management", "task runner", "static site generator", "markdown parser",
-"cli tool", "dashboard", "api gateway", "job scheduler", "image optimizer",
-"openapi", "websocket", "cron", "diff", "sqlite", "cache", "queue",
-"form builder", "csv", "pdf", "email", "auth", "i18n", "theme",
-"webhook", "proxy", "log", "monitor", "backup", "migrate", "scraper"
-```
-```bash
-gh api -X GET search/repositories \
-  -f q='KEYWORD stars:30..2000 pushed:>$(date -d "14 days ago" +%Y-%m-%d)' \
-  -f sort=updated -f order=desc -f per_page=10 \
   --jq '.items[] | {full_name, stars: .stargazers_count, pushed_at, language}'
 ```
 
-**Repo filtering criteria:**
-- Stars: ≥ 30
-- Last push: within 14 days
-- Has open issues with activity in the last 30 days
+**Repo filters:**
+- Stars: ≥ 100, pushed within 7 days
+- Has open issues with recent activity
 - Has a license file (skip unlicensed repos)
 - Prefer repos with `CONTRIBUTING.md` or `CLAUDE.md`
 
 #### Phase 2: Issue Triage
 
-Walk issues **from newest to oldest** in each candidate repo. Newer issues are less likely to already be fixed.
+For each trending repo, walk issues **from newest to oldest**, running this pipeline on each. Stop scanning once you have **3 qualified candidates** across all repos.
 
-##### Issue Evaluation Pipeline (run per issue, in order)
+##### Issue Evaluation Pipeline
+
+Run each check in order. If any fails, skip and move to the next issue.
 
 **Step 1 — Already addressed in commits?**
 ```bash
@@ -88,18 +71,12 @@ If a commit references the issue or describes the fix → SKIP
 
 **Step 2 — Already addressed in PRs?**
 ```bash
-gh pr list --repo <owner/repo> --state all --search "<keywords>" --json number,title,state,body
+gh pr list --repo <owner/repo> --state all --search "<keywords>" --json number,title,state
 gh pr list --repo <owner/repo> --state merged --search "#<N>" --json number,title
 ```
-Check closed PRs too — fixes may have merged without auto-closing the issue.
-Look for "Fixes #<N>" or "Closes #<N>" in PR descriptions.
-If a PR already addresses this issue → SKIP
+Check closed PRs — fixes may have merged without auto-closing. Also search for "Fixes #<N>" / "Closes #<N>" in PR bodies. If found → SKIP
 
-**Step 3 — Still reproducible on default branch?**
-If the repo is cloneable/buildable, quickly verify the bug still exists.
-If not → SKIP (fixed without referencing the issue)
-
-**Step 4 — Workload classification:**
+**Step 3 — Workload classification:**
 
 | Effort  | Criteria                                    | Keep? |
 |---------|----------------------------------------------|-------|
@@ -108,16 +85,15 @@ If not → SKIP (fixed without referencing the issue)
 | medium  | 3–8 files, new endpoint, DB migration        | ✗     |
 | large   | API change, multi-service, design discussion | ✗     |
 
-**Step 5 — Effort estimate:**
-Record files affected, lines of change, testing needed, dependency risks.
+Only keep **trivial** and **small**. Drop medium/large.
 
-**Step 6 — Issue quality check:**
+**Step 4 — Issue quality check:**
 - Clear reproduction steps or acceptance criteria?
-- Maintainer response/direction?
-- Someone else assigned or working on it?
+- Has a maintainer responded? What direction?
+- Is someone else already assigned or visibly working on it?
 Drop underspecified or already-claimed issues.
 
-**Priority labels:**
+**Priority labels to favor:**
 
 | Category          | Labels                                          |
 |-------------------|-------------------------------------------------|
@@ -132,21 +108,20 @@ Drop underspecified or already-claimed issues.
 | Configuration     | `config`, `ci`, `chore`                         |
 | Accessibility     | `accessibility`, `a11y`                         |
 
-#### Phase 3: Candidate Presentation
+#### Phase 3: Present 3 Candidates
 
-1. **Enter plan mode** for every candidate. Present each with:
-   - Repo, issue number, title (linked)
-   - Workload classification + estimate (e.g., "small, ~3 files, ~20 lines, 15 min")
+1. **Enter plan mode.** Present exactly **3 candidates**. For each, include:
+   - Repo name, issue number, issue title (linked)
+   - Workload + estimate (e.g., "small, ~3 files, ~20 lines, 15 min")
    - Whether the repo has its own guidelines or will use fallback
-   - One-line fix approach summary
+   - One-line summary of the fix approach
 
-2. Present the top 3–5 candidates. Do not start until user approves.
+2. Let the user choose one (or reject all). Do not start until user approves.
 
-3. If zero candidates survive triage, expand the search:
+3. If **fewer than 3** candidates survive across all trending repos, expand the search:
+   - Lower star threshold (100 → 50 → 30)
    - Broaden date range (7d → 14d → 30d)
-   - Lower the star threshold
-   - Try a different domain keyword
-   - Report back and ask for direction.
+   - If still not enough, report what was found and ask for direction.
 
 ---
 
