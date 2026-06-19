@@ -232,5 +232,41 @@
       "pending": 0
     },
     "last_checked": "2026-06-19T19:08:40.779290+00:00"
+  },
+  {
+    "repo": "Dyalog/link",
+    "pr_number": 768,
+    "pr_url": "https://github.com/Dyalog/link/pull/768",
+    "issue_url": "https://github.com/Dyalog/link/issues/763",
+    "state": "OPEN",
+    "created_at": "2026-06-19T19:23:13Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T19:23:11.556899+00:00"
+  },
+  {
+    "repo": "DeanWay/fastapi-versioning",
+    "pr_number": 79,
+    "pr_url": "https://github.com/DeanWay/fastapi-versioning/pull/79",
+    "issue_url": "https://github.com/DeanWay/fastapi-versioning/issues/78",
+    "state": "OPEN",
+    "created_at": "2026-06-19T19:26:36Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-19T19:26:41.315811+00:00"
   }
 ]

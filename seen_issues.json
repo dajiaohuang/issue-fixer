@@ -192,6 +192,10 @@
     "number": 62
   },
   {
+    "repo": "DeanWay/fastapi-versioning",
+    "number": 78
+  },
+  {
     "repo": "Dyalog/link",
     "number": 743
   },
@@ -328,12 +332,20 @@
     "number": 9934
   },
   {
+    "repo": "Expensify/App",
+    "number": 94092
+  },
+  {
     "repo": "FairyEver/Synapse",
     "number": 1858
   },
   {
     "repo": "Finsys/dockhand",
     "number": 1204
+  },
+  {
+    "repo": "Giovannibriglia/NeuralBayesianNetworks",
+    "number": 232
   },
   {
     "repo": "GussLacerda/colaborar-com-github-desktop",
@@ -364,8 +376,16 @@
     "number": 219
   },
   {
+    "repo": "JhaSourav07/commitpulse",
+    "number": 5694
+  },
+  {
     "repo": "Kalanyr/gogrepoc",
     "number": 169
+  },
+  {
+    "repo": "LFGBanditLabs/Quipay",
+    "number": 1004
   },
   {
     "repo": "LerianStudio/github-actions-shared-workflows",
@@ -494,6 +514,38 @@
   {
     "repo": "OpenSIN-AI/OpenSIN-Chat",
     "number": 250
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1058
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1063
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1064
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1068
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1078
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1089
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1139
+  },
+  {
+    "repo": "OpnForm/OpnForm",
+    "number": 1167
   },
   {
     "repo": "PathOfBuildingCommunity/PathOfBuilding-PoE2",
@@ -706,6 +758,50 @@
   {
     "repo": "VATSIM-UK/UK-Sector-File",
     "number": 6210
+  },
+  {
+    "repo": "VeriWorkly/veriworkly",
+    "number": 153
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1257
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1280
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1292
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1316
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1394
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1401
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1408
+  },
+  {
+    "repo": "XGovFormBuilder/digital-form-builder",
+    "number": 1410
+  },
+  {
+    "repo": "Xarlos89/Eos",
+    "number": 158
+  },
+  {
+    "repo": "Xarlos89/Eos",
+    "number": 159
   },
   {
     "repo": "YingkeSu/novel2Animatic",
@@ -932,6 +1028,10 @@
     "number": 12213
   },
   {
+    "repo": "elastic/kibana",
+    "number": 274219
+  },
+  {
     "repo": "exequtic/apdatifier",
     "number": 218
   },
@@ -1156,6 +1256,10 @@
     "number": 1305
   },
   {
+    "repo": "microsoft/vscode",
+    "number": 321049
+  },
+  {
     "repo": "microsoft/winget-pkgs",
     "number": 390400
   },
@@ -1272,6 +1376,10 @@
     "number": 4510
   },
   {
+    "repo": "plotly/dash",
+    "number": 3833
+  },
+  {
     "repo": "pmgraham/datagrunt",
     "number": 168
   },
@@ -1286,6 +1394,14 @@
   {
     "repo": "pmgraham/datagrunt",
     "number": 242
+  },
+  {
+    "repo": "pwatsonr/autonomous-dev",
+    "number": 523
+  },
+  {
+    "repo": "pyca/cryptography",
+    "number": 15072
   },
   {
     "repo": "rerost/giro",
@@ -1352,6 +1468,10 @@
     "number": 228
   },
   {
+    "repo": "scorpiocodex/Nyxora",
+    "number": 21
+  },
+  {
     "repo": "siddsachar/row-bot",
     "number": 140
   },
@@ -1416,6 +1536,38 @@
     "number": 26
   },
   {
+    "repo": "surveyjs/survey-creator",
+    "number": 7551
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7559
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7620
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7678
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7696
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7697
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7707
+  },
+  {
+    "repo": "surveyjs/survey-creator",
+    "number": 7811
+  },
+  {
     "repo": "swyxio/gh-action-data-scraping",
     "number": 1
   },
@@ -1460,12 +1612,20 @@
     "number": 345
   },
   {
+    "repo": "threehappypenguins/VideoSphere",
+    "number": 65
+  },
+  {
     "repo": "towerwatchman/Atlas",
     "number": 122
   },
   {
     "repo": "upbound/upbound",
     "number": 46
+  },
+  {
+    "repo": "vilmarmichelsfilho/Projeto-Livraria",
+    "number": 42
   },
   {
     "repo": "warscribe-app/feedback",
@@ -1478,5 +1638,29 @@
   {
     "repo": "wekan/wekan",
     "number": 6398
+  },
+  {
+    "repo": "wp-sms/wp-sms",
+    "number": 322
+  },
+  {
+    "repo": "x-govuk/govuk-form-builder",
+    "number": 239
+  },
+  {
+    "repo": "x-govuk/govuk-form-builder",
+    "number": 455
+  },
+  {
+    "repo": "x-govuk/govuk-form-builder",
+    "number": 600
+  },
+  {
+    "repo": "x-govuk/govuk-form-builder",
+    "number": 605
+  },
+  {
+    "repo": "x-govuk/govuk-form-builder",
+    "number": 607
   }
 ]
