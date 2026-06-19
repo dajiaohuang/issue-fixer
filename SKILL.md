@@ -70,14 +70,14 @@ The user provides a repo (`owner/repo`) and optionally an issue number.
 Use `scripts/discover.py` to automate all mechanical checks (repo search, commit grep, PR search, linked PR check):
 
 ```bash
-python scripts/discover.py --min-stars 100 --max-days 7 --repo-count 10 --max-candidates 10
+python scripts/discover.py --min-stars 100 --max-days 7 --repo-count 10 --max-candidates 5
 ```
 
 Parameters:
 - `--min-stars` — minimum repo stars (default 100, lower to 50 or 30 if no results)
 - `--max-days` — last push within N days (default 7, expand to 14 or 30)
 - `--repo-count` — repos to scan (default 10)
-- `--max-candidates` — max issues to return (default 10)
+- `--max-candidates` — max issues to return (default 5)
 
 The script outputs a JSON array of candidates that passed all checks. It handles Steps 1-3 of the pipeline automatically:
 - Searches commits for issue references
