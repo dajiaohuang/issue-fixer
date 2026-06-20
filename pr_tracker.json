@@ -15,7 +15,7 @@
       "skipped": 2,
       "pending": 1
     },
-    "last_checked": "2026-06-19T18:15:39.680728+00:00"
+    "last_checked": "2026-06-20T04:39:52.309050+00:00"
   },
   {
     "repo": "bit-team/backintime",
@@ -33,7 +33,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:40.349830+00:00"
+    "last_checked": "2026-06-20T04:39:53.338171+00:00"
   },
   {
     "repo": "cafferychen777/gmail-mcp",
@@ -51,17 +51,17 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:40.979042+00:00"
+    "last_checked": "2026-06-20T04:39:53.852769+00:00"
   },
   {
     "repo": "MervinPraison/PraisonAI",
     "pr_number": 2058,
     "pr_url": "https://github.com/MervinPraison/PraisonAI/pull/2058",
     "issue_url": "https://github.com/MervinPraison/PraisonAI/issues/2056",
-    "state": "OPEN",
+    "state": "MERGED",
     "created_at": "2026-06-19T17:22:39Z",
-    "merged_at": null,
-    "closed_at": null,
+    "merged_at": "2026-06-19T22:35:53Z",
+    "closed_at": "2026-06-19T22:35:53Z",
     "ci_status": {
       "total": 2,
       "success": 1,
@@ -69,7 +69,7 @@
       "skipped": 0,
       "pending": 1
     },
-    "last_checked": "2026-06-19T18:15:41.994866+00:00"
+    "last_checked": "2026-06-20T04:39:54.948376+00:00"
   },
   {
     "repo": "schmitech/orbit",
@@ -87,17 +87,17 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:42.654954+00:00"
+    "last_checked": "2026-06-20T04:39:55.547063+00:00"
   },
   {
     "repo": "public-apis/public-apis",
     "pr_number": 6357,
     "pr_url": "https://github.com/public-apis/public-apis/pull/6357",
     "issue_url": "https://github.com/public-apis/public-apis/issues/6324",
-    "state": "OPEN",
+    "state": "MERGED",
     "created_at": "2026-06-19T17:51:37Z",
-    "merged_at": null,
-    "closed_at": null,
+    "merged_at": "2026-06-19T20:57:18Z",
+    "closed_at": "2026-06-19T20:57:18Z",
     "ci_status": {
       "total": 0,
       "success": 0,
@@ -105,7 +105,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:43.259968+00:00"
+    "last_checked": "2026-06-20T04:39:56.105809+00:00"
   },
   {
     "repo": "public-apis/public-apis",
@@ -123,7 +123,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:43.831422+00:00"
+    "last_checked": "2026-06-20T04:39:56.614924+00:00"
   },
   {
     "repo": "EbookFoundation/free-programming-books",
@@ -135,23 +135,23 @@
     "merged_at": null,
     "closed_at": null,
     "ci_status": {
-      "total": 5,
-      "success": 4,
+      "total": 6,
+      "success": 6,
       "failure": 0,
       "skipped": 0,
-      "pending": 1
+      "pending": 0
     },
-    "last_checked": "2026-06-19T18:15:44.532651+00:00"
+    "last_checked": "2026-06-20T04:39:57.240750+00:00"
   },
   {
     "repo": "SauersML/gam",
     "pr_number": 1354,
     "pr_url": "https://github.com/SauersML/gam/pull/1354",
     "issue_url": "https://github.com/SauersML/gam/issues/1353",
-    "state": "OPEN",
+    "state": "MERGED",
     "created_at": "2026-06-19T18:28:08Z",
-    "merged_at": null,
-    "closed_at": null,
+    "merged_at": "2026-06-19T18:40:44Z",
+    "closed_at": "2026-06-19T18:40:44Z",
     "ci_status": {
       "total": 0,
       "success": 0,
@@ -159,7 +159,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:28:12.266705+00:00"
+    "last_checked": "2026-06-20T04:39:57.837285+00:00"
   },
   {
     "repo": "Dyalog/link",
@@ -177,7 +177,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T18:30:12.208330+00:00"
+    "last_checked": "2026-06-20T04:39:58.359840+00:00"
   },
   {
     "repo": "mlorentedev/hive",
@@ -189,13 +189,13 @@
     "merged_at": null,
     "closed_at": null,
     "ci_status": {
-      "total": 2,
-      "success": 1,
-      "failure": 0,
-      "skipped": 0,
-      "pending": 1
+      "total": 7,
+      "success": 3,
+      "failure": 1,
+      "skipped": 1,
+      "pending": 2
     },
-    "last_checked": "2026-06-19T18:35:59.173450+00:00"
+    "last_checked": "2026-06-20T04:39:59.207697+00:00"
   },
   {
     "repo": "EffortlessMetrics/perl-lsp",
@@ -213,17 +213,17 @@
       "skipped": 13,
       "pending": 1
     },
-    "last_checked": "2026-06-19T18:57:18.846334+00:00"
+    "last_checked": "2026-06-20T04:39:59.897531+00:00"
   },
   {
     "repo": "Community-Access/quill",
     "pr_number": 339,
     "pr_url": "https://github.com/Community-Access/quill/pull/339",
     "issue_url": "https://github.com/Community-Access/quill/issues/291",
-    "state": "OPEN",
+    "state": "MERGED",
     "created_at": "2026-06-19T19:08:37Z",
-    "merged_at": null,
-    "closed_at": null,
+    "merged_at": "2026-06-19T20:16:44Z",
+    "closed_at": "2026-06-19T20:16:44Z",
     "ci_status": {
       "total": 0,
       "success": 0,
@@ -231,7 +231,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T19:08:40.779290+00:00"
+    "last_checked": "2026-06-20T04:40:00.408034+00:00"
   },
   {
     "repo": "Dyalog/link",
@@ -249,7 +249,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T19:23:11.556899+00:00"
+    "last_checked": "2026-06-20T04:40:00.985174+00:00"
   },
   {
     "repo": "DeanWay/fastapi-versioning",
@@ -267,6 +267,132 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-19T19:26:41.315811+00:00"
+    "last_checked": "2026-06-20T04:40:01.571408+00:00"
+  },
+  {
+    "repo": "Ayushh-Sharmaa/NexaSphere",
+    "pr_number": 2481,
+    "pr_url": "https://github.com/Ayushh-Sharmaa/NexaSphere/pull/2481",
+    "issue_url": "https://github.com/Ayushh-Sharmaa/NexaSphere/issues/2480",
+    "state": "CLOSED",
+    "created_at": "2026-06-19T19:39:14Z",
+    "merged_at": null,
+    "closed_at": "2026-06-19T19:39:23Z",
+    "ci_status": {
+      "total": 16,
+      "success": 13,
+      "failure": 0,
+      "skipped": 2,
+      "pending": 1
+    },
+    "last_checked": "2026-06-20T04:40:02.477405+00:00"
+  },
+  {
+    "repo": "joinmarket-webui/jam",
+    "pr_number": 1290,
+    "pr_url": "https://github.com/joinmarket-webui/jam/pull/1290",
+    "issue_url": "https://github.com/joinmarket-webui/jam/issues/1289",
+    "state": "OPEN",
+    "created_at": "2026-06-19T19:45:16Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-20T04:40:03.089305+00:00"
+  },
+  {
+    "repo": "Anuken/Mindustry",
+    "pr_number": 12244,
+    "pr_url": "https://github.com/Anuken/Mindustry/pull/12244",
+    "issue_url": "https://github.com/Anuken/Mindustry/issues/12243",
+    "state": "OPEN",
+    "created_at": "2026-06-19T19:46:39Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 2,
+      "success": 2,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-20T04:40:03.671777+00:00"
+  },
+  {
+    "repo": "ron190/jsql-injection",
+    "pr_number": 96496,
+    "pr_url": "https://github.com/ron190/jsql-injection/pull/96496",
+    "issue_url": "https://github.com/ron190/jsql-injection/issues/96495",
+    "state": "OPEN",
+    "created_at": "2026-06-19T19:56:54Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 1,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 1
+    },
+    "last_checked": "2026-06-20T04:40:04.265336+00:00"
+  },
+  {
+    "repo": "Kaoruha/GinkGO",
+    "pr_number": 6196,
+    "pr_url": "https://github.com/Kaoruha/GinkGO/pull/6196",
+    "issue_url": "https://github.com/Kaoruha/GinkGO/issues/5519",
+    "state": "OPEN",
+    "created_at": "2026-06-19T20:12:40Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-20T04:40:04.790809+00:00"
+  },
+  {
+    "repo": "Kaoruha/GinkGO",
+    "pr_number": 6197,
+    "pr_url": "https://github.com/Kaoruha/GinkGO/pull/6197",
+    "issue_url": "https://github.com/Kaoruha/GinkGO/issues/5518",
+    "state": "OPEN",
+    "created_at": "2026-06-19T20:15:15Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-20T04:40:05.763519+00:00"
+  },
+  {
+    "repo": "Kaoruha/GinkGO",
+    "pr_number": 6198,
+    "pr_url": "https://github.com/Kaoruha/GinkGO/pull/6198",
+    "issue_url": "https://github.com/Kaoruha/GinkGO/issues/4891",
+    "state": "OPEN",
+    "created_at": "2026-06-19T20:16:49Z",
+    "merged_at": null,
+    "closed_at": null,
+    "ci_status": {
+      "total": 0,
+      "success": 0,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 0
+    },
+    "last_checked": "2026-06-20T04:40:06.284734+00:00"
   }
 ]
