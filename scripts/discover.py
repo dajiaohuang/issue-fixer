@@ -93,6 +93,33 @@ DIRECT_SEARCH_QUERIES = [
 ]
 
 # Repos whose full_name matches any of these patterns are excluded
+# Repos whose FAQ.md explicitly bans AI-generated content — skip entirely
+AI_BANNED_REPOS: set[str] = set()  # Populated at runtime from FAQ.md checks
+
+
+def _repo_bans_ai(repo_full_name: str) -> bool:
+    """Check if a repo's FAQ.md explicitly bans AI-generated contributions."""
+    if repo_full_name in AI_BANNED_REPOS:
+        return True
+    # Quick check: fetch FAQ.md and grep for AI ban keywords
+    try:
+        content = run(
+            ["gh", "api", f"repos/{repo_full_name}/contents/FAQ.md", "--jq", ".content"],
+            timeout=10,
+        )
+        if not content:
+            return False
+        import base64
+        decoded = base64.b64decode(content).decode("utf-8", errors="replace").lower()
+        if "ai-generated" in decoded and ("prohibited" in decoded or "not accepted" in decoded or "ban" in decoded):
+            AI_BANNED_REPOS.add(repo_full_name)
+            print(f"  [skip] {repo_full_name}: FAQ.md bans AI-generated content", file=sys.stderr)
+            return True
+    except Exception:
+        pass
+    return False
+
+
 EXCLUDED_REPO_PATTERNS = [
     r"/awesome$", r"/awesome-", r"/Awesome-", r"-awesome-",
     r"/public-apis$", r"/free-programming-books$",
@@ -501,6 +528,8 @@ def discover_candidates(min_stars=100, max_days=7, repo_count=10, issue_limit=8,
                 break
             rn = iss["_repo_full_name"]
             if not rn or is_list_repo(rn):
+                continue
+            if _repo_bans_ai(rn):
                 continue
             num = iss["number"]
             if _is_seen(rn, num):

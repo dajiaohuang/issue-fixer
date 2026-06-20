@@ -15,7 +15,7 @@
       "skipped": 2,
       "pending": 1
     },
-    "last_checked": "2026-06-20T04:39:52.309050+00:00"
+    "last_checked": "2026-06-20T05:14:47.334394+00:00"
   },
   {
     "repo": "bit-team/backintime",
@@ -33,7 +33,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:53.338171+00:00"
+    "last_checked": "2026-06-20T05:14:47.876189+00:00"
   },
   {
     "repo": "cafferychen777/gmail-mcp",
@@ -51,7 +51,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:53.852769+00:00"
+    "last_checked": "2026-06-20T05:14:48.410468+00:00"
   },
   {
     "repo": "MervinPraison/PraisonAI",
@@ -69,7 +69,7 @@
       "skipped": 0,
       "pending": 1
     },
-    "last_checked": "2026-06-20T04:39:54.948376+00:00"
+    "last_checked": "2026-06-20T05:14:49.331254+00:00"
   },
   {
     "repo": "schmitech/orbit",
@@ -87,7 +87,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:55.547063+00:00"
+    "last_checked": "2026-06-20T05:14:49.913967+00:00"
   },
   {
     "repo": "public-apis/public-apis",
@@ -105,7 +105,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:56.105809+00:00"
+    "last_checked": "2026-06-20T05:14:50.481476+00:00"
   },
   {
     "repo": "public-apis/public-apis",
@@ -117,13 +117,13 @@
     "merged_at": null,
     "closed_at": null,
     "ci_status": {
-      "total": 0,
-      "success": 0,
-      "failure": 0,
+      "total": 2,
+      "success": 1,
+      "failure": 1,
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:56.614924+00:00"
+    "last_checked": "2026-06-20T05:14:51.146559+00:00"
   },
   {
     "repo": "EbookFoundation/free-programming-books",
@@ -141,7 +141,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:57.240750+00:00"
+    "last_checked": "2026-06-20T05:14:51.755793+00:00"
   },
   {
     "repo": "SauersML/gam",
@@ -159,7 +159,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:57.837285+00:00"
+    "last_checked": "2026-06-20T05:14:52.340875+00:00"
   },
   {
     "repo": "Dyalog/link",
@@ -177,7 +177,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:39:58.359840+00:00"
+    "last_checked": "2026-06-20T05:14:52.881762+00:00"
   },
   {
     "repo": "mlorentedev/hive",
@@ -189,13 +189,13 @@
     "merged_at": null,
     "closed_at": null,
     "ci_status": {
-      "total": 7,
-      "success": 3,
-      "failure": 1,
-      "skipped": 1,
-      "pending": 2
+      "total": 2,
+      "success": 1,
+      "failure": 0,
+      "skipped": 0,
+      "pending": 1
     },
-    "last_checked": "2026-06-20T04:39:59.207697+00:00"
+    "last_checked": "2026-06-20T05:14:54.005587+00:00"
   },
   {
     "repo": "EffortlessMetrics/perl-lsp",
@@ -213,7 +213,7 @@
       "skipped": 13,
       "pending": 1
     },
-    "last_checked": "2026-06-20T04:39:59.897531+00:00"
+    "last_checked": "2026-06-20T05:14:55.057102+00:00"
   },
   {
     "repo": "Community-Access/quill",
@@ -231,7 +231,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:00.408034+00:00"
+    "last_checked": "2026-06-20T05:14:55.632636+00:00"
   },
   {
     "repo": "Dyalog/link",
@@ -249,7 +249,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:00.985174+00:00"
+    "last_checked": "2026-06-20T05:14:56.171981+00:00"
   },
   {
     "repo": "DeanWay/fastapi-versioning",
@@ -267,7 +267,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:01.571408+00:00"
+    "last_checked": "2026-06-20T05:14:57.155256+00:00"
   },
   {
     "repo": "Ayushh-Sharmaa/NexaSphere",
@@ -285,7 +285,7 @@
       "skipped": 2,
       "pending": 1
     },
-    "last_checked": "2026-06-20T04:40:02.477405+00:00"
+    "last_checked": "2026-06-20T05:14:57.840162+00:00"
   },
   {
     "repo": "joinmarket-webui/jam",
@@ -303,7 +303,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:03.089305+00:00"
+    "last_checked": "2026-06-20T05:14:58.449762+00:00"
   },
   {
     "repo": "Anuken/Mindustry",
@@ -321,7 +321,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:03.671777+00:00"
+    "last_checked": "2026-06-20T05:14:59.011157+00:00"
   },
   {
     "repo": "ron190/jsql-injection",
@@ -339,7 +339,7 @@
       "skipped": 0,
       "pending": 1
     },
-    "last_checked": "2026-06-20T04:40:04.265336+00:00"
+    "last_checked": "2026-06-20T05:14:59.550015+00:00"
   },
   {
     "repo": "Kaoruha/GinkGO",
@@ -357,7 +357,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:04.790809+00:00"
+    "last_checked": "2026-06-20T05:15:00.062763+00:00"
   },
   {
     "repo": "Kaoruha/GinkGO",
@@ -375,7 +375,7 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:05.763519+00:00"
+    "last_checked": "2026-06-20T05:15:00.574028+00:00"
   },
   {
     "repo": "Kaoruha/GinkGO",
@@ -393,6 +393,6 @@
       "skipped": 0,
       "pending": 0
     },
-    "last_checked": "2026-06-20T04:40:06.284734+00:00"
+    "last_checked": "2026-06-20T05:15:01.109574+00:00"
   }
 ]

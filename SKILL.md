@@ -281,13 +281,14 @@ When working inside a cloned repo, check for these files in order. The first app
 |----------|------|---------------|
 | 1 | `CLAUDE.md` | AI assistant instructions — follow exactly |
 | 2 | `CONTRIBUTING.md` | PR process, commit style, testing requirements |
-| 3 | `.github/pull_request_template.md` | Required PR checklist |
-| 4 | `.github/ISSUE_TEMPLATE/*.md` | Issue structure conventions |
-| 5 | `CODE_OF_CONDUCT.md` | Community norms |
-| 6 | `DEVELOPMENT.md` / `BUILDING.md` | Local setup, build commands |
-| 7 | `CODE_STYLE.md` / `.editorconfig` | Formatting rules |
-| 8 | Lint config files (`.eslintrc*`, `.prettierrc*`, `pyproject.toml`, etc.) | Run the linter |
-| 9 | `Makefile` / `justfile` / `package.json` scripts | Build/test/lint entry points |
+| 3 | `FAQ.md` | New contributor rules (introduction, AI policy, assignment) |
+| 4 | `.github/pull_request_template.md` | Required PR checklist |
+| 5 | `.github/ISSUE_TEMPLATE/*.md` | Issue structure conventions |
+| 6 | `CODE_OF_CONDUCT.md` | Community norms |
+| 7 | `DEVELOPMENT.md` / `BUILDING.md` | Local setup, build commands |
+| 8 | `CODE_STYLE.md` / `.editorconfig` | Formatting rules |
+| 9 | Lint config files (`.eslintrc*`, `.prettierrc*`, `pyproject.toml`, etc.) | Run the linter |
+| 10 | `Makefile` / `justfile` / `package.json` scripts | Build/test/lint entry points |
 
 If the target repo lacks all of the above, apply the **Fallback Maintenance Guidelines** below.
 
@@ -295,6 +296,8 @@ If the target repo lacks all of the above, apply the **Fallback Maintenance Guid
 - Match existing code style, naming, and patterns
 - Run the existing test suite before making changes
 - Make the smallest change that fixes the issue — no drive-by refactors
+- **If FAQ.md requires self-introduction**, add a brief introduction in your PR body (who you are, why you're contributing)
+- **If FAQ.md bans AI-generated content**, do NOT submit to that repo — skip it entirely
 
 ---
 

@@ -1,136 +1,122 @@
 #!/usr/bin/env python3
 """
-Autonomous issue-fixing loop.
-Runs discovery, fixes candidates, opens PRs — no confirmation needed.
-
-Usage:
-    python auto_fix.py [--rounds 5] [--max-candidates 3]
+Autonomous issue-fixing pipeline using claude -p.
+Usage: python auto_fix.py [--loop] [--max 5]
 """
 
-import argparse
-import json
-import os
-import subprocess
-import sys
-import tempfile
-from datetime import datetime, timezone
+import json, os, subprocess, sys, time
 
 SKILL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WORKSPACE = r"D:\repo\issue-fixer"
 DISCOVER = os.path.join(SKILL_DIR, "scripts", "discover.py")
 TRACKER = os.path.join(SKILL_DIR, "scripts", "pr_tracker.py")
+WORKSPACE = r"D:\repo\issue-fixer"
+
+FIX_PROMPT = """You are an autonomous issue fixer. Fix this GitHub issue and open a PR.
+Do NOT ask any questions. Do NOT enter plan mode. Work silently. Output only a summary at the end.
+
+**Issue:** {repo}#{num} — {title}
+**URL:** {url}
+**Stars:** {stars} | **License:** {license} | **Labels:** {labels}
+
+**Instructions:**
+1. Read the issue: gh issue view {num} --repo {repo}
+2. Fork: gh repo fork {repo} --clone=false
+3. Clone: git clone https://github.com/dajiaohuang/{name}.git {workspace}\\{owner}-{name}
+4. cd into clone, read relevant source files, understand the bug, apply the MINIMAL fix
+5. If the repo has CONTRIBUTING.md, follow its rules. If PR template exists, fill it.
+6. Run tests if available (pytest / npm test / cargo test / etc.)
+7. Commit with conventional commit (fix: / docs: / feat:). NEVER include Co-Authored-By, Generated with Claude Code, or 🤖.
+8. Check default branch: gh api repos/{repo} --jq .default_branch
+9. Push to branch '{branch}' on origin
+10. Create PR with title and body linking to the issue
+11. cd back to the workspace root
+
+**Output format:** When done, print exactly:
+PR_URL=<pr_url>
+"""
 
 
-def run(cmd, **kwargs):
+def run(cmd, timeout=600):
     try:
-        shell = isinstance(cmd, str)
-        result = subprocess.run(
-            cmd, capture_output=True, text=True, encoding="utf-8", errors="replace",
-            timeout=kwargs.get("timeout", 60), shell=shell, cwd=kwargs.get("cwd"),
-        )
-        return (result.stdout or "").strip(), (result.stderr or "").strip(), result.returncode
+        r = subprocess.run(cmd, capture_output=True, text=True, shell=True, timeout=timeout)
+        return r.stdout.strip(), r.stderr.strip(), r.returncode
     except subprocess.TimeoutExpired:
         return "", "timeout", 1
 
 
-def discover(max_candidates=3, use_direct=True, use_keyword=True, min_stars=5, max_days=21):
-    """Run discovery script, return candidate list."""
-    args = [
-        sys.executable, DISCOVER,
-        "--max-candidates", str(max_candidates),
-        "--min-stars", str(min_stars),
-        "--max-days", str(max_days),
-    ]
-    if use_direct:
-        args.append("--direct")
-    if use_keyword:
-        args.append("--keyword")
-        args.extend(["--kw-min-stars", "5"])
-
-    stdout, stderr, rc = run(args, timeout=300)
+def discover(max_candidates=3):
+    stdout, stderr, rc = run(
+        f"{sys.executable} {DISCOVER} --direct --keyword --kw-min-stars 5 --max-days 120 --max-candidates {max_candidates}",
+        timeout=300,
+    )
     if rc != 0 or not stdout:
         return []
     try:
-        data = json.loads(stdout)
-        return data.get("candidates", [])
+        return json.loads(stdout).get("candidates", [])
     except json.JSONDecodeError:
         return []
 
 
-def fix_and_pr(candidate):
-    """Fork, clone, fix, push, create PR for one candidate. Returns PR URL or None."""
+def fix_one(candidate):
     repo = candidate["repo"]
-    number = candidate["issue_number"]
+    owner, name = repo.split("/")
+    num = candidate["issue_number"]
     title = candidate["issue_title"]
-    body = candidate.get("issue_body", "")
     url = candidate["issue_url"]
+    stars = candidate.get("repo_stars", 0)
+    license_key = candidate.get("repo_license", "?")
+    labels = ",".join(candidate.get("issue_labels", []) or [])
+    slug = "".join(c if c.isalnum() else "-" for c in title.lower()[:40]).strip("-")
+    branch = f"fix/{num}-{slug}"
 
-    owner, repo_name = repo.split("/")
-    fork_url = f"https://github.com/dajiaohuang/{repo_name}.git"
-    clone_dir = os.path.join(WORKSPACE, f"{owner}-{repo_name}")
-
-    print(f"  Fixing {repo}#{number}: {title[:80]}")
-
-    # Fork
-    run(f"gh repo fork {repo} --clone=false", timeout=30)
-
-    # Clone (remove if exists)
-    if os.path.isdir(clone_dir):
-        run(f'rm -rf "{clone_dir}"', timeout=10)
-    stdout, stderr, rc = run(
-        f'git clone --depth 50 "{fork_url}" "{clone_dir}"',
-        timeout=120,
+    prompt = FIX_PROMPT.format(
+        repo=repo, owner=owner, name=name, num=num,
+        title=title, url=url, stars=stars, license=license_key,
+        labels=labels, branch=branch, workspace=WORKSPACE,
     )
-    if rc != 0:
-        print(f"    Clone failed: {stderr[:200]}")
-        return None
 
-    # ── Determine fix strategy from issue body ──
-    # This is where Claude would normally plan. For autonomous mode we
-    # handle simple categories: dead code, typo, error message, link/list add.
-    # Complex fixes (new features, API changes, multi-file refactors) are skipped.
+    print(f"\n>>> Fixing {repo}#{num}: {title[:80]}")
+    print(f"    Running: claude -p ...")
 
-    # For now, this script is a framework — the actual fix logic is delegated
-    # back to the main session. We just log the candidate for manual fixing.
-    print(f"    Candidate logged: {url}")
-    print(f"    Clone at: {clone_dir}")
+    stdout, stderr, rc = run(f'claude -p --permission-mode bypassPermissions "{prompt}"', timeout=600)
+    print(stdout[:500] if stdout else "(no output)")
 
-    # Placeholder — return None to indicate "needs manual fix"
-    return None
+    if rc == 0:
+        print(f"    ✓ {repo}#{num} done.")
+        run(f"{sys.executable} {TRACKER} add {url} {url}", timeout=10)
+    else:
+        print(f"    ✗ {repo}#{num} failed (rc={rc})")
+        if stderr:
+            print(f"    stderr: {stderr[:200]}")
 
 
 def main():
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    loop = "--loop" in sys.argv
+    max_candidates = 3
+    for i, a in enumerate(sys.argv):
+        if a == "--max" and i + 1 < len(sys.argv):
+            max_candidates = int(sys.argv[i + 1])
 
-    p = argparse.ArgumentParser()
-    p.add_argument("--rounds", type=int, default=5)
-    p.add_argument("--max-candidates", type=int, default=3)
-    args = p.parse_args()
-
-    total_fixed = 0
-    for rnd in range(1, args.rounds + 1):
-        print(f"\n{'='*60}")
-        print(f"Round {rnd}/{args.rounds}")
-        print(f"{'='*60}")
-
-        candidates = discover(max_candidates=args.max_candidates)
+    if loop:
+        print("Autonomous loop started. Ctrl+C to stop.")
+        while True:
+            candidates = discover(max_candidates)
+            if not candidates:
+                print("No candidates. Sleeping 30s...")
+                time.sleep(30)
+                continue
+            print(f"Found {len(candidates)} candidate(s).")
+            for c in candidates:
+                fix_one(c)
+            time.sleep(5)
+    else:
+        candidates = discover(max_candidates)
         if not candidates:
-            print("  No candidates found. Expanding search...")
-            # Expand: lower stars, longer date range
-            candidates = discover(min_stars=3, max_days=30)
-        if not candidates:
-            print("  Still nothing. Skipping round.")
-            continue
-
-        print(f"  Found {len(candidates)} candidate(s):")
+            print("No candidates found.")
+            return
+        print(f"Found {len(candidates)} candidate(s).")
         for c in candidates:
-            print(f"    {c['repo']}#{c['issue_number']} — {c['issue_title'][:100]}")
-            print(f"      {c['repo_stars']}★ | {c['repo_license']} | labels: {c.get('issue_labels', [])}")
-
-        # In autonomous mode, each candidate needs to be fixed manually
-        # for now — the auto_fix is a discovery+log tool.
-        # Full autonomous fixing requires the main Claude session.
-    print(f"\nDone {args.rounds} rounds.")
+            fix_one(c)
 
 
 if __name__ == "__main__":
