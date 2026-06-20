@@ -4,6 +4,10 @@
     "number": 4
   },
   {
+    "repo": "3rdIteration/btcrecover",
+    "number": 740
+  },
+  {
     "repo": "46ki75/elmethis",
     "number": 1649
   },
@@ -46,6 +50,14 @@
   {
     "repo": "AdeshWardhe/portfolio-generator",
     "number": 2
+  },
+  {
+    "repo": "AlexdanerZe/agents-radar",
+    "number": 358
+  },
+  {
+    "repo": "AlexdanerZe/agents-radar",
+    "number": 360
   },
   {
     "repo": "AltairaLabs/Omnia",
@@ -148,6 +160,10 @@
     "number": 8911
   },
   {
+    "repo": "AstrBotDevs/AstrBot-desktop",
+    "number": 139
+  },
+  {
     "repo": "Athou/commafeed",
     "number": 1912
   },
@@ -178,6 +194,10 @@
   {
     "repo": "Athou/commafeed",
     "number": 2181
+  },
+  {
+    "repo": "Augustrains/agents-radar",
+    "number": 226
   },
   {
     "repo": "AxDSan/mnemosyne",
@@ -308,6 +328,18 @@
     "number": 1347
   },
   {
+    "repo": "BabylonJS/Babylon-Lite",
+    "number": 264
+  },
+  {
+    "repo": "BeFeast/maestro",
+    "number": 741
+  },
+  {
+    "repo": "BerriAI/litellm",
+    "number": 30870
+  },
+  {
     "repo": "Betta-Pay/BettaPay-Backend",
     "number": 95
   },
@@ -318,6 +350,10 @@
   {
     "repo": "Bitf1ip/ha-hydros",
     "number": 7
+  },
+  {
+    "repo": "BrianV1981/a3m-operator-panel",
+    "number": 1
   },
   {
     "repo": "CHANG-JUI-LIN/Yuedu-reader",
@@ -358,6 +394,10 @@
   {
     "repo": "CardanoSolutions/ogmios",
     "number": 460
+  },
+  {
+    "repo": "ChasarooniZ/pf2e-summons-assistant",
+    "number": 156
   },
   {
     "repo": "Community-Access/quill",
@@ -552,6 +592,10 @@
     "number": 34
   },
   {
+    "repo": "Durgeshwar-AI/pdfToPng",
+    "number": 387
+  },
+  {
     "repo": "Dyalog/link",
     "number": 743
   },
@@ -688,6 +732,10 @@
     "number": 9934
   },
   {
+    "repo": "Eloyye/lc-prac",
+    "number": 39
+  },
+  {
     "repo": "EthicApp-Development/ethicapp-main",
     "number": 572
   },
@@ -724,6 +772,10 @@
     "number": 367
   },
   {
+    "repo": "Franck2040/devsecops-pipeline-fr",
+    "number": 29
+  },
+  {
     "repo": "Fz0x00/chromium-intel",
     "number": 1
   },
@@ -742,6 +794,14 @@
   {
     "repo": "GlobalRouter/python-sdk",
     "number": 120
+  },
+  {
+    "repo": "GlobalRouter/python-sdk",
+    "number": 144
+  },
+  {
+    "repo": "GrapesGoober/flanker",
+    "number": 242
   },
   {
     "repo": "GrapheneOS/os-issue-tracker",
@@ -808,6 +868,30 @@
     "number": 976
   },
   {
+    "repo": "IamMrCupp/annoybots",
+    "number": 63
+  },
+  {
+    "repo": "IamMrCupp/annoybots",
+    "number": 65
+  },
+  {
+    "repo": "IamMrCupp/annoybots",
+    "number": 66
+  },
+  {
+    "repo": "IamMrCupp/annoybots",
+    "number": 67
+  },
+  {
+    "repo": "IamMrCupp/annoybots",
+    "number": 68
+  },
+  {
+    "repo": "IamMrCupp/annoybots",
+    "number": 69
+  },
+  {
     "repo": "Ikalus1988/MisakaNet",
     "number": 218
   },
@@ -816,12 +900,24 @@
     "number": 219
   },
   {
+    "repo": "JacobGiordano/roundtable",
+    "number": 237
+  },
+  {
     "repo": "JhaSourav07/commitpulse",
     "number": 5694
   },
   {
+    "repo": "JohnGao818/agents-radar",
+    "number": 251
+  },
+  {
     "repo": "Kalanyr/gogrepoc",
     "number": 169
+  },
+  {
+    "repo": "KaolaBrother/Kaola-Workflow",
+    "number": 544
   },
   {
     "repo": "Kaoruha/GinkGO",
@@ -984,8 +1080,16 @@
     "number": 109
   },
   {
+    "repo": "Luke100000/minecraft-comes-alive",
+    "number": 1349
+  },
+  {
     "repo": "MPCoreDeveloper/SharpCoreDB",
     "number": 171
+  },
+  {
+    "repo": "MRIARC-08/VidyaSetu",
+    "number": 404
   },
   {
     "repo": "MTAAP/shiplens",
@@ -1088,6 +1192,10 @@
     "number": 577
   },
   {
+    "repo": "Moonfin-Client/Moonfin-Core",
+    "number": 581
+  },
+  {
     "repo": "Moonfin-Client/Smart-TV",
     "number": 255
   },
@@ -1118,6 +1226,10 @@
   {
     "repo": "NirShaharabani/verdaccio",
     "number": 261
+  },
+  {
+    "repo": "NoopApp/noop",
+    "number": 518
   },
   {
     "repo": "NousResearch/hermes-agent",
@@ -1156,12 +1268,20 @@
     "number": 49242
   },
   {
+    "repo": "NousResearch/hermes-agent",
+    "number": 49513
+  },
+  {
     "repo": "OctoPrint/OctoPrint",
     "number": 5421
   },
   {
     "repo": "OldRon1977/HHauto",
     "number": 1771
+  },
+  {
+    "repo": "Open-Cascade-SAS/OCCT",
+    "number": 1320
   },
   {
     "repo": "Open-Less/openless",
@@ -1320,6 +1440,10 @@
     "number": 220
   },
   {
+    "repo": "Rain-kl/PixivSync",
+    "number": 1
+  },
+  {
     "repo": "Ranchero-Software/NetNewsWire",
     "number": 5314
   },
@@ -1352,12 +1476,20 @@
     "number": 5334
   },
   {
+    "repo": "RapierCraftStudios/ForgeDock",
+    "number": 946
+  },
+  {
     "repo": "Rhas92/tickets-api",
     "number": 17
   },
   {
     "repo": "RunMaestro/Maestro",
     "number": 1110
+  },
+  {
+    "repo": "SAP/python-pyodata",
+    "number": 280
   },
   {
     "repo": "SCPru/RuFoundation",
@@ -1394,6 +1526,14 @@
   {
     "repo": "SSmale/Duux-Home-Assistant",
     "number": 94
+  },
+  {
+    "repo": "Sadna-2026/ticketing-system",
+    "number": 519
+  },
+  {
+    "repo": "Sadna-2026/ticketing-system",
+    "number": 520
   },
   {
     "repo": "SamuelMosesA/RemotePortAudioRecorder",
@@ -1526,6 +1666,10 @@
   {
     "repo": "SiVeci/JavDB_magnet_Spider",
     "number": 4
+  },
+  {
+    "repo": "SimpleNotificationSystem/simplens-core",
+    "number": 15
   },
   {
     "repo": "SkriptLang/Skript",
@@ -1820,6 +1964,14 @@
     "number": 3710
   },
   {
+    "repo": "Wicked3000/braenova-stockmaster-pos",
+    "number": 8
+  },
+  {
+    "repo": "Wolfvin/Regrets",
+    "number": 325
+  },
+  {
     "repo": "XGovFormBuilder/digital-form-builder",
     "number": 1257
   },
@@ -1900,12 +2052,20 @@
     "number": 477
   },
   {
+    "repo": "YouROK/TorrServer",
+    "number": 750
+  },
+  {
     "repo": "ZaxbyHub/opencode-swarm",
     "number": 1436
   },
   {
     "repo": "ZoneMinder/zoneminder",
     "number": 4944
+  },
+  {
+    "repo": "a16n-dev/lucide-mui",
+    "number": 343
   },
   {
     "repo": "abhattacherjee/obsidian-brain",
@@ -1976,6 +2136,10 @@
     "number": 27
   },
   {
+    "repo": "akaszubski/autonomous-dev",
+    "number": 1266
+  },
+  {
     "repo": "aleksey-hoffman/sigma-file-manager",
     "number": 505
   },
@@ -1994,6 +2158,14 @@
   {
     "repo": "anomalyco/opencode",
     "number": 33027
+  },
+  {
+    "repo": "anomalyco/opencode",
+    "number": 33068
+  },
+  {
+    "repo": "ansys/pyedb",
+    "number": 2302
   },
   {
     "repo": "anthropics/claude-code",
@@ -2024,6 +2196,18 @@
     "number": 8578
   },
   {
+    "repo": "astropy/astropy",
+    "number": 19933
+  },
+  {
+    "repo": "audacity/audacity",
+    "number": 11222
+  },
+  {
+    "repo": "autumngarage/alchemist",
+    "number": 257
+  },
+  {
     "repo": "avibe-bot/avibe",
     "number": 620
   },
@@ -2032,8 +2216,20 @@
     "number": 7634
   },
   {
+    "repo": "awwesomeman/factrix",
+    "number": 629
+  },
+  {
+    "repo": "awwesomeman/factrix",
+    "number": 637
+  },
+  {
     "repo": "axoviq-ai/synthadoc",
     "number": 94
+  },
+  {
+    "repo": "aydinserbest/claude-routines",
+    "number": 19
   },
   {
     "repo": "aymericzip/intlayer",
@@ -2078,6 +2274,14 @@
   {
     "repo": "bankielewicz/DevForgeAI",
     "number": 790
+  },
+  {
+    "repo": "bartfeenstra/betty",
+    "number": 4374
+  },
+  {
+    "repo": "beecho01/material-symbols",
+    "number": 15
   },
   {
     "repo": "beeminder/blog",
@@ -2132,6 +2336,18 @@
     "number": 169
   },
   {
+    "repo": "bluleo78/smart-workplace",
+    "number": 434
+  },
+  {
+    "repo": "bluleo78/smart-workplace",
+    "number": 437
+  },
+  {
+    "repo": "bmransom/foundry",
+    "number": 6
+  },
+  {
     "repo": "bosancz/interni-sekce",
     "number": 199
   },
@@ -2168,6 +2384,14 @@
     "number": 2957
   },
   {
+    "repo": "cataclysmbn/Cataclysm-BN",
+    "number": 9586
+  },
+  {
+    "repo": "cbcoutinho/nextcloud-mcp-server",
+    "number": 933
+  },
+  {
     "repo": "cclib/cclib",
     "number": 1806
   },
@@ -2184,6 +2408,10 @@
     "number": 272
   },
   {
+    "repo": "chaitin/agent-compose",
+    "number": 33
+  },
+  {
     "repo": "chopratejas/headroom",
     "number": 1172
   },
@@ -2198,6 +2426,42 @@
   {
     "repo": "colinvkim/Radix",
     "number": 1
+  },
+  {
+    "repo": "companyfernandezagnes-hue/arumepro",
+    "number": 105
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10653
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10658
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10670
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10676
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10692
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10693
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10694
+  },
+  {
+    "repo": "coollabsio/coolify",
+    "number": 10709
   },
   {
     "repo": "craftcms/cms",
@@ -2280,6 +2544,42 @@
     "number": 2317
   },
   {
+    "repo": "crosspoint-reader/crosspoint-reader",
+    "number": 2336
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 90
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 91
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 92
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 93
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 95
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 96
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 97
+  },
+  {
+    "repo": "crunchtools/acquacotta",
+    "number": 98
+  },
+  {
     "repo": "cverna/fedora-coreos-rawhide-ci",
     "number": 11
   },
@@ -2326,6 +2626,10 @@
   {
     "repo": "damontecres/Wholphin",
     "number": 1595
+  },
+  {
+    "repo": "damontecres/Wholphin",
+    "number": 1598
   },
   {
     "repo": "danabaxia/agent_mesh",
@@ -2564,6 +2868,10 @@
     "number": 1210
   },
   {
+    "repo": "enscribejs/enscribe",
+    "number": 270
+  },
+  {
     "repo": "evilbunny2008/weeWXWeatherApp",
     "number": 37
   },
@@ -2586,6 +2894,10 @@
   {
     "repo": "flashinfer-ai/flashinfer",
     "number": 3676
+  },
+  {
+    "repo": "fleetdm/fleet",
+    "number": 47963
   },
   {
     "repo": "fluxerapp/fluxer",
@@ -2628,8 +2940,24 @@
     "number": 2163
   },
   {
+    "repo": "gbif/gbif-web",
+    "number": 1848
+  },
+  {
     "repo": "gchq/CyberChef",
     "number": 2583
+  },
+  {
+    "repo": "giaquyen1995/kts-be",
+    "number": 51
+  },
+  {
+    "repo": "giaquyen1995/kts-be",
+    "number": 52
+  },
+  {
+    "repo": "giaquyen1995/kts-be",
+    "number": 53
   },
   {
     "repo": "github/gh-aw",
@@ -2708,6 +3036,18 @@
     "number": 4112
   },
   {
+    "repo": "hezhijie0327/ZJDNS",
+    "number": 1
+  },
+  {
+    "repo": "hezhijie0327/ZJDNS",
+    "number": 5
+  },
+  {
+    "repo": "hezhijie0327/ZJDNS",
+    "number": 97
+  },
+  {
     "repo": "hitoshiichikawa/idd-codex",
     "number": 51
   },
@@ -2718,6 +3058,10 @@
   {
     "repo": "hokithree7/2nothing",
     "number": 24
+  },
+  {
+    "repo": "home-assistant/addons",
+    "number": 4656
   },
   {
     "repo": "home-assistant/core",
@@ -2760,6 +3104,10 @@
     "number": 379
   },
   {
+    "repo": "huggingface/diffusers",
+    "number": 13998
+  },
+  {
     "repo": "huggingface/pytorch-image-models",
     "number": 2505
   },
@@ -2796,8 +3144,28 @@
     "number": 45
   },
   {
+    "repo": "hungson175/vnfin",
+    "number": 174
+  },
+  {
     "repo": "iceemperor-gcempire/vcc-manager",
     "number": 620
+  },
+  {
+    "repo": "icons-pack/svelte-simple-icons",
+    "number": 55
+  },
+  {
+    "repo": "icons-pack/svelte-simple-icons",
+    "number": 99
+  },
+  {
+    "repo": "icons-pack/svelte-simple-icons",
+    "number": 101
+  },
+  {
+    "repo": "icons-pack/svelte-simple-icons",
+    "number": 115
   },
   {
     "repo": "ifmeorg/ifme",
@@ -2876,6 +3244,14 @@
     "number": 2456
   },
   {
+    "repo": "jasl/vllm",
+    "number": 21
+  },
+  {
+    "repo": "jcfischer/supertag-cli",
+    "number": 98
+  },
+  {
     "repo": "jdmanring/odysseus",
     "number": 56
   },
@@ -2910,6 +3286,14 @@
   {
     "repo": "jentic/jentic-openapi-tools",
     "number": 230
+  },
+  {
+    "repo": "jerryscript-project/jerryscript",
+    "number": 5295
+  },
+  {
+    "repo": "jhrmnn/pyberny",
+    "number": 148
   },
   {
     "repo": "joinmarket-webui/jam",
@@ -2980,6 +3364,10 @@
     "number": 188
   },
   {
+    "repo": "joshua-jingu-lee/ante",
+    "number": 2404
+  },
+  {
     "repo": "jr200-labs/xstate-duckdb",
     "number": 8
   },
@@ -3016,12 +3404,24 @@
     "number": 459
   },
   {
+    "repo": "keertan07/AI-resume-analyzer",
+    "number": 21
+  },
+  {
     "repo": "keiyoushi/extensions-source",
     "number": 16830
   },
   {
     "repo": "keiyoushi/extensions-source",
     "number": 16832
+  },
+  {
+    "repo": "kevindo1103/khe",
+    "number": 126
+  },
+  {
+    "repo": "kindfi-org/kindfi",
+    "number": 897
   },
   {
     "repo": "kindfi-org/kindfi",
@@ -3034,6 +3434,14 @@
   {
     "repo": "kubedoio/rustchat",
     "number": 92
+  },
+  {
+    "repo": "kubestellar/docs",
+    "number": 5998
+  },
+  {
+    "repo": "kubestellar/docs",
+    "number": 5999
   },
   {
     "repo": "kyj119/dongsan_mes",
@@ -3088,6 +3496,10 @@
     "number": 734
   },
   {
+    "repo": "leo4226/groei-app",
+    "number": 238
+  },
+  {
     "repo": "leonarduk/allotmint",
     "number": 4570
   },
@@ -3134,6 +3546,10 @@
   {
     "repo": "lucasdmarco/gstack-vibehard",
     "number": 2
+  },
+  {
+    "repo": "luketanti/AeroFoil",
+    "number": 121
   },
   {
     "repo": "lux-db/lux",
@@ -3212,6 +3628,10 @@
     "number": 34
   },
   {
+    "repo": "marktext/marktext",
+    "number": 4595
+  },
+  {
     "repo": "marmot-protocol/goggles",
     "number": 8
   },
@@ -3286,6 +3706,26 @@
   {
     "repo": "medusajs/medusa",
     "number": 14106
+  },
+  {
+    "repo": "meixger/hackernews-daily",
+    "number": 1375
+  },
+  {
+    "repo": "mf-yang/openclaw-cn",
+    "number": 567
+  },
+  {
+    "repo": "mgomes/vibescript",
+    "number": 451
+  },
+  {
+    "repo": "mgomes/vibescript",
+    "number": 452
+  },
+  {
+    "repo": "mgomes/vibescript",
+    "number": 453
   },
   {
     "repo": "michael-conrad/.opencode",
@@ -3458,6 +3898,10 @@
   {
     "repo": "mosamlife/wpmgr",
     "number": 5
+  },
+  {
+    "repo": "moveit/moveit2_tutorials",
+    "number": 1096
   },
   {
     "repo": "mrsaminus/SC-Intel-Tool",
@@ -3673,6 +4117,14 @@
   },
   {
     "repo": "openclaw/openclaw",
+    "number": 87700
+  },
+  {
+    "repo": "openclaw/openclaw",
+    "number": 88501
+  },
+  {
+    "repo": "openclaw/openclaw",
     "number": 92270
   },
   {
@@ -3736,12 +4188,24 @@
     "number": 220
   },
   {
+    "repo": "padok-team/burrito",
+    "number": 213
+  },
+  {
+    "repo": "padok-team/burrito",
+    "number": 221
+  },
+  {
     "repo": "padok-team/git-volume-reloader",
     "number": 3
   },
   {
     "repo": "padok-team/git-volume-reloader",
     "number": 4
+  },
+  {
+    "repo": "pandaria75/marionettist",
+    "number": 47
   },
   {
     "repo": "parisosuch/beaver",
@@ -3896,6 +4360,10 @@
     "number": 7294
   },
   {
+    "repo": "rajat-wyrm/InternOps",
+    "number": 522
+  },
+  {
     "repo": "raman325/lock_code_manager",
     "number": 1278
   },
@@ -4048,6 +4516,18 @@
     "number": 96495
   },
   {
+    "repo": "ronisarkarexe/story-spark-ai",
+    "number": 3682
+  },
+  {
+    "repo": "runtipi/runtipi-appstore",
+    "number": 11380
+  },
+  {
+    "repo": "sameerasw/my-internet",
+    "number": 2873
+  },
+  {
     "repo": "schmitech/orbit",
     "number": 196
   },
@@ -4120,6 +4600,10 @@
     "number": 21
   },
   {
+    "repo": "sdatkinson/neural-amp-modeler",
+    "number": 681
+  },
+  {
     "repo": "siddsachar/row-bot",
     "number": 140
   },
@@ -4152,6 +4636,10 @@
     "number": 213
   },
   {
+    "repo": "sidneyvonex/sMARTA-Career-Pathway-aDVISOR",
+    "number": 59
+  },
+  {
     "repo": "sis-inf/escuadra",
     "number": 316
   },
@@ -4174,6 +4662,10 @@
   {
     "repo": "sis-inf/trazo",
     "number": 275
+  },
+  {
+    "repo": "slitvinova/bootcamp-app",
+    "number": 24
   },
   {
     "repo": "smart-swimmingpool/website",
@@ -4212,6 +4704,10 @@
     "number": 90
   },
   {
+    "repo": "souma9830/SnapPass-AI",
+    "number": 877
+  },
+  {
     "repo": "soybeanjs/soybean-ui",
     "number": 20
   },
@@ -4236,12 +4732,48 @@
     "number": 145
   },
   {
+    "repo": "spfn/spfn",
+    "number": 6
+  },
+  {
+    "repo": "spfn/spfn",
+    "number": 14
+  },
+  {
     "repo": "spotbye/SpotiFLAC",
     "number": 959
   },
   {
     "repo": "squirrelsoft-dev/spore-core",
     "number": 152
+  },
+  {
+    "repo": "srteerra/pitmydoro",
+    "number": 69
+  },
+  {
+    "repo": "srteerra/pitmydoro",
+    "number": 75
+  },
+  {
+    "repo": "srteerra/pitmydoro",
+    "number": 90
+  },
+  {
+    "repo": "srteerra/pitmydoro",
+    "number": 91
+  },
+  {
+    "repo": "srteerra/pitmydoro",
+    "number": 94
+  },
+  {
+    "repo": "stablyai/orca",
+    "number": 5799
+  },
+  {
+    "repo": "starquake/topbanana",
+    "number": 1072
   },
   {
     "repo": "statamic/cms",
@@ -4316,6 +4848,10 @@
     "number": 35231
   },
   {
+    "repo": "sudeep2003/astro-iconset",
+    "number": 7
+  },
+  {
     "repo": "sul-dlss/argo",
     "number": 5151
   },
@@ -4365,6 +4901,10 @@
   },
   {
     "repo": "szmidtpiotr/ai-gm",
+    "number": 774
+  },
+  {
+    "repo": "szmidtpiotr/ai-gm",
     "number": 829
   },
   {
@@ -4374,6 +4914,14 @@
   {
     "repo": "tadoEng/EtabExtension",
     "number": 94
+  },
+  {
+    "repo": "tarcin00001-cloud/MbedO-Bugs",
+    "number": 7
+  },
+  {
+    "repo": "tarcin00001-cloud/MbedO-Bugs",
+    "number": 8
   },
   {
     "repo": "tashfeenahmed/freellmapi",
@@ -4472,6 +5020,10 @@
     "number": 65
   },
   {
+    "repo": "tiangolo/library-skills",
+    "number": 109
+  },
+  {
     "repo": "tiekoettercom/searx-instances-uptime",
     "number": 25177
   },
@@ -4512,8 +5064,48 @@
     "number": 123
   },
   {
+    "repo": "traktore-org/sem-community",
+    "number": 535
+  },
+  {
     "repo": "upbound/upbound",
     "number": 46
+  },
+  {
+    "repo": "usebruno/bruno",
+    "number": 8318
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 501
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 502
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 503
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 504
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 505
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 506
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 507
+  },
+  {
+    "repo": "utilForever/focustime",
+    "number": 524
   },
   {
     "repo": "vercel/ai",
@@ -4534,6 +5126,14 @@
   {
     "repo": "viriyerse2/Support",
     "number": 265
+  },
+  {
+    "repo": "vllm-project/llm-compressor",
+    "number": 2842
+  },
+  {
+    "repo": "warpdotdev/warp",
+    "number": 11525
   },
   {
     "repo": "warscribe-app/feedback",
@@ -4612,6 +5212,10 @@
     "number": 607
   },
   {
+    "repo": "yuki-nyanko/primordial-star-simulator",
+    "number": 41
+  },
+  {
     "repo": "zaewc/scrolloop",
     "number": 19
   },
@@ -4634,6 +5238,14 @@
   {
     "repo": "zephyrproject-rtos/zephyr",
     "number": 111697
+  },
+  {
+    "repo": "zhaokai-mgzn/migao",
+    "number": 628
+  },
+  {
+    "repo": "zhaokai-mgzn/migao",
+    "number": 629
   },
   {
     "repo": "zhayujie/CowAgent",
