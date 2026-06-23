@@ -375,6 +375,92 @@ The `check` command reports:
 
 ---
 
+## PR Review Response
+
+After submitting a PR, bots (CodeRabbit, Greptile, Copilot, Qodo) and humans will leave review comments. Responding effectively requires triage — not every comment is a valid bug.
+
+### Step 1: Collect All Comments
+
+```bash
+gh pr view <N> --repo <owner/repo> --comments --json comments --jq '.comments[] | "\(.author.login): \(.body)"'
+```
+
+Read every comment before acting.  Bots often flag the same issue from different angles — fix once, not N times.
+
+### Step 2: Triage into Three Buckets
+
+| Bucket | Criteria | Action |
+|--------|----------|--------|
+| 🔴 **Real bugs** | Crash, `NameError`, data loss, race condition, security hole | Fix immediately |
+| 🟡 **Valid concerns** | Missing validation, unclear error messages, hardening gaps | Fix |
+| ⚪ **Skip** | False positives, design choices, stale reviews (from before latest push), pre-existing issues not caused by the PR | Explain why, don't fix |
+
+**Common false positives to recognize:**
+
+| Signal | Why it's safe to skip |
+|--------|----------------------|
+| `codecov/patch` or `codecov/project` failure on fork PR | Fork CI doesn't upload coverage flags — not a real drop |
+| Stale review from a bot referencing old line numbers | Check if the commit hash in the review is outdated; compare against `git log` |
+| "Docstring coverage too low" (e.g. 35% vs 80% threshold) | Read the project's actual docstring convention; many projects don't enforce this |
+| Bot suggests adding a parameter that's already there | The bot may have reviewed an intermediate commit — check current HEAD |
+
+### Step 3: Fix in Order of Severity
+
+1. **Blocking bugs first** (crash, `NameError`, race) — these need one commit
+2. **Medium issues** (error handling, hardening) — can be one or more commits
+3. **Skip bucket** — note in a single PR comment which items were intentionally skipped and why
+
+### Step 4: Handle Remote Conflicts
+
+If bots or maintainers push to your branch between your commits:
+
+```bash
+# Check what remote has
+git fetch origin <branch>
+git log --oneline origin/<branch> -5
+
+# Pull with rebase
+git pull --rebase origin <branch>
+
+# If conflicts: check if remote already fixed the same things
+# If remote fix is incomplete → abort, reset to remote, re-apply remaining fixes
+git rebase --abort
+git reset --hard origin/<branch>
+# ... edit files to apply what's still missing ...
+git add -A && git commit && git push
+```
+
+### Step 5: Check CI
+
+```bash
+gh pr checks <N> --repo <owner/repo>
+```
+
+Filter failures:
+
+| Looks bad | Actually bad? |
+|-----------|---------------|
+| `test-core` / `test-windows` / `smoke` ❌ | 🔴 Yes — real test failure, investigate logs |
+| `codecov/*` ❌ on fork PR | ⚪ No — fork doesn't upload coverage flags |
+| `review` ❌ from bot | ⚪ Check the commit hash — if stale, ignore |
+
+### Step 6: Comment After Every Push
+
+Post a concise summary on the PR after each fix push:
+
+```
+gh pr comment <N> --repo <owner/repo> -F /tmp/msg.txt
+```
+
+Use `-F <file>` (not `--body`) to avoid shell escaping problems with backticks, quotes, and parentheses.
+
+Include:
+- What was fixed (with file names)
+- What was intentionally skipped (with reasons)
+- CI status assessment (which failures are real vs false positives)
+
+---
+
 ## Tooling Notes
 
 - Use `gh` CLI for all GitHub operations (issues, PRs, comments, search).
