@@ -326,7 +326,11 @@ I'd appreciate maintainer feedback on whether this direction fits the project.
 
 ### Mode A — Specified Repo
 
-The user provides a repo (`owner/repo`) and optionally an issue number.
+The user provides a repo (`owner/repo`). Two sub-modes depending on whether an issue number is given.
+
+#### Mode A1 — Specific Issue
+
+The user provides both a repo and an issue number (e.g., "Fix https://github.com/owner/repo/issues/42").
 
 1. Fork and clone the repo.
 2. Run the **Pre-Fix Checklist** (commit/PR search, verify open, read thread).
@@ -336,6 +340,45 @@ The user provides a repo (`owner/repo`) and optionally an issue number.
    - Estimated effort (files, lines, time)
    - Which guidelines will be used (repo's own or fallback)
 4. Wait for user approval before writing any code.
+
+#### Mode A2 — Repo Issue Scan (newest-first)
+
+The user provides a repo but no issue number (e.g., "扫一下 owner/repo 有没有能修的 issue", "看看这个仓库有什么能做的"). Walk the repo's open issues from **newest to oldest**, applying the taste gate and pre-fix checklist to each one. Do NOT fork or clone until a specific issue is chosen.
+
+**Scan procedure:**
+
+1. **Fetch open issues** — get the repo's open issues sorted by creation date descending:
+   ```bash
+   gh issue list --repo <owner/repo> --state open --sort created --limit 100 --json number,title,createdAt,labels,assignees,commentsCount,reactions
+   ```
+   If the repo has more than 100 open issues, paginate with `--limit 100` and offset.
+
+2. **Walk newest-to-oldest** — for each issue, apply the full gate **in order**:
+   - **Skip check** — is it already in `seen_issues.json`? → skip
+   - **Assignment check** — is it assigned to someone? → skip (unless stale, see below)
+   - **PR check** — search commits and PRs (open/closed/merged) for references to this issue number; also check `closedByPullRequestsReferences` → if already fixed/claimed → skip
+   - **Staleness check** — no activity in 6+ months AND no clear reproduction steps → skip
+   - **Taste gate** — classify as `ACCEPT` / `ASK_MAINTAINER` / `REJECT_OR_SKIP` using the full Issue Intake / Taste Gate criteria
+   - **Workload estimate** — classify as `trivial` / `small` / `medium` / `large`
+
+3. **Stop conditions** — stop scanning when any of these is met (don't scan the entire backlog):
+   - Found **5 actionable candidates** (taste gate = `ACCEPT`, workload = `trivial` or `small`)
+   - Walked through **50 issues** without finding enough actionable ones
+   - Reached issues older than **90 days** AND have found at least 1 candidate
+   - **In autonomous mode:** found **1 actionable candidate** → stop and fix it immediately, then resume scan from where you left off
+
+4. **Present candidates** (confirm mode) — show a table of all actionable candidates found:
+
+   | # | Issue | Type | Effort | Est. | Notes |
+   |---|-------|------|--------|------|-------|
+   | 1 | [#N](url) Title | bug | small | ~20 lines | Clear repro steps |
+   | 2 | [#M](url) Title | docs | trivial | ~5 lines | Typo in README |
+
+   For each row include a one-line fix summary and why it passed the taste gate.
+
+5. **If zero candidates** — report the reason (all skipped: assigned, already fixed, taste gate rejections by category) and suggest widening: check older issues, or switch to Mode B auto-discovery.
+
+6. **Once user picks an issue** — proceed to Fork & Clone and the standard fix workflow.
 
 ### Mode B — Auto-Discover
 
