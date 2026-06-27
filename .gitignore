@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Workspace (staging area for cloned repos)
+/workspace/
+
+# Personal tracking data (do not upload)
+pr_tracker.json
+seen_issues.json
