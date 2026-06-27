@@ -149,6 +149,8 @@ python scripts/pr_tracker.py check [--repo owner/repo]   # CI status, reviews, n
 python scripts/pr_tracker.py list
 ```
 
+When the user asks "维护PR" or "看看PR状态", Claude presents a **PR Maintenance Table** — all tracked PRs sorted by priority (🔴 action-needed → 🟡 waiting → 🟢 healthy → ⚪ terminal), with CI/review/activity status and a specific action for each row. In autonomous mode, maintenance checks run after every 3 fix rounds.
+
 ### Autonomous Pipeline
 
 ```bash

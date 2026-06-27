@@ -741,6 +741,87 @@ Include:
 
 ---
 
+## PR Maintenance Table
+
+After every batch of PR submissions, or when the user asks "维护一下PR", "看看PR状态", "check my PRs", present a **PR Maintenance Table** that summarizes all tracked PRs and the action needed for each.
+
+### Step 1: Run Check
+
+```bash
+python scripts/pr_tracker.py check
+```
+
+This updates all tracked PRs with latest state, CI, reviews, and detects new comments.
+
+### Step 2: Build the Maintenance Table
+
+Present the table with one row per tracked PR. Sort by priority: 🔴 action-needed first, then 🟡 waiting, then 🟢 healthy, then ⚪ done.
+
+| Priority | PR | Repo | State | CI | Reviews | Activity | Action |
+|----------|-----|------|-------|----|---------|----------|--------|
+| 🔴 | [#N](url) Title | owner/repo | OPEN | ❌2 | 💬1 changes | 2 new comments | Fix CI failures |
+| 🟡 | [#N](url) Title | owner/repo | OPEN | ✅ | ⏳ pending | — | Wait for review |
+| 🟢 | [#N](url) Title | owner/repo | OPEN | ✅ | ✅ approved | — | Ready to merge |
+| ⚪ | [#N](url) Title | owner/repo | MERGED | ✅ | ✅ | — | Done; cleanup clone |
+
+**Column definitions:**
+
+- **Priority** — 🔴 needs immediate action (CI fail, changes requested, merge conflict) / 🟡 waiting on external (review pending, maintainer response) / 🟢 healthy (CI green, approved, awaiting merge) / ⚪ terminal (merged, closed)
+- **PR** — number, URL, and title
+- **Repo** — owner/repo
+- **State** — OPEN / MERGED / CLOSED
+- **CI** — ✅ all pass / ❌N failures / ⏳ pending / — no CI
+- **Reviews** — ✅ approved / ❌ changes requested / 💬 commented / ⏳ pending / — none yet
+- **Activity** — new comments since last check, new commits on the PR, or — if no change
+- **Action** — one-line description of what needs to be done next
+
+### Step 3: Triage and Act
+
+Process each row by priority:
+
+**🔴 Action-needed PRs (do immediately):**
+
+| Situation | Action |
+|-----------|--------|
+| CI failure (real test fail, not codecov) | Clone repo → reproduce failure → fix → push to same branch |
+| Changes requested by reviewer | Address each requested change or explain why not → push → comment summary |
+| Merge conflict | `git fetch origin <base>` → `git rebase origin/<base>` → resolve → force push |
+| New review comments (not yet changes-requested) | Read, triage with the 3-bucket system, fix real issues, comment on skips |
+| PR closed by maintainer | Read the close reason, learn, mark terminal. Do NOT re-open or argue. |
+
+**🟡 Waiting PRs (monitor, don't act):**
+- Awaiting review — do not ping unless >7 days idle AND the repo's contributing guide permits follow-ups
+- CI pending — wait for CI to complete; check back in 5-10 minutes
+- Maintainer asked a question — answer promptly, then mark back to 🟡
+
+**🟢 Healthy PRs (verify then wait):**
+- CI green + approved → nothing to do; maintainer will merge
+- If >3 days since approval without merge, the PR may be in a merge queue — don't ping
+
+**⚪ Terminal PRs (wrap up):**
+- MERGED → clean up local clone: `rm -rf <clone-dir>`. Record in `seen_issues.json`.
+- CLOSED (not merged) → read the close reason, learn from it, clean up clone. If the close reason was a fixable issue (e.g., "missing tests"), consider reopening with the fix applied — but only if the maintainer explicitly invited it.
+
+### Step 4: Report Summary
+
+After the table, report a one-line summary:
+
+```
+N tracked PRs: X 🔴 action-needed, Y 🟡 waiting, Z 🟢 healthy, W ⚪ terminal
+```
+
+### Step 5: Loop in Autonomous Mode
+
+In autonomous mode, after presenting the table and fixing all 🔴 items, resume discovery. If no 🔴 items remain, continue the autonomous loop.
+
+**When to present the maintenance table:**
+- User says "维护PR", "看看PR", "check PRs", "PR状态"
+- After creating a batch of new PRs
+- When resuming a session with tracked PRs that have been idle >1 hour
+- In autonomous mode: after every 3 fix rounds, do a maintenance check on all tracked PRs
+
+---
+
 ## Tooling Notes
 
 - Use `gh` CLI for all GitHub operations (issues, PRs, comments, search).
